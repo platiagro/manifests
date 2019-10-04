@@ -1,0 +1,27 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: dataset-store
+spec:
+  selector:
+    matchLabels:
+      app: dataset-store
+  template:
+    metadata:
+      labels:
+        app: dataset-store
+    spec:
+      containers:
+      - image: platiagro/dataset-store:0.0.1
+        name: dataset-store
+        env:
+        - name: DB_HOST
+          value: "mysql"
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_ROOT_PASSWORD
+          value: ""
+        - name: DB_DATABASE
+          value: "dataset-store"
+        ports:
+        - containerPort: 3000

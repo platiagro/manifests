@@ -1,0 +1,18 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: datatype
+spec:
+  selector:
+    matchLabels:
+      app: datatype
+  template:
+    metadata:
+      labels:
+        app: datatype
+    spec:
+      containers:
+      - image: platiagro/datatype:0.0.1
+        name: datatype
+        ports:
+        - containerPort: 3000

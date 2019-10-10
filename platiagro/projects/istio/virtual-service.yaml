@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: projects
+spec:
+  gateways:
+  - kubeflow-gateway
+  hosts:
+  - '*'
+  http:
+  - match:
+    - uri:
+        prefix: /projects
+    rewrite:
+      uri: /projects
+    route:
+    - destination:
+        host: projects.$(namespace).svc.$(clusterDomain)
+        port:
+          number: 3000

@@ -15,6 +15,6 @@ spec:
       uri: /projects
     route:
     - destination:
-        host: projects.$(namespace).svc.$(clusterDomain)
+        host: $(service).$(ui-namespace).svc.$(ui-clusterDomain)
         port:
           number: 3000

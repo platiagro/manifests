@@ -15,6 +15,6 @@ spec:
       uri: /minio
     route:
     - destination:
-        host: minio-service.$(namespace).svc.$(clusterDomain)
+        host: $(service).$(ui-namespace).svc.$(ui-clusterDomain)
         port:
           number: 9000

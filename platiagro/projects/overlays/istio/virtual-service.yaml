@@ -10,7 +10,7 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /projects
+        prefix: /projects/apis
     rewrite:
       uri: /projects
     route:

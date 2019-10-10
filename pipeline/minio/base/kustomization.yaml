@@ -23,21 +23,21 @@ vars:
 - name: ui-namespace
   objref:
     kind: Service
-    name: minio
+    name: minio-service
     apiVersion: v1
   fieldref:
     fieldpath: metadata.namespace
 - name: ui-clusterDomain
   objref:
     kind: ConfigMap
-    name: ui-parameters
+    name: pipeline-minio-parameters
     version: v1
   fieldref:
     fieldpath: data.uiClusterDomain
 - name: service
   objref:
     kind: Service
-    name: minio
+    name: minio-service
     apiVersion: v1
 images:
 - name: minio/minio

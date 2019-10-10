@@ -14060,6 +14060,16 @@ spec:
       port: 80
       targetPort: 80
     -
+      name: http2
+      nodePort: 31381
+      port: 3000
+      targetPort: 3000
+    -
+      name: http2
+      nodePort: 31382
+      port: 9000
+      targetPort: 9000
+    -
       name: https
       nodePort: 31390
       port: 443

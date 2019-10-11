@@ -10,7 +10,7 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /datasets/apis
+        prefix: /datasets/apis/
     rewrite:
       uri: /
     route:

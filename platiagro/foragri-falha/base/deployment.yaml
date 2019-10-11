@@ -1,0 +1,18 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: foragri-falha
+spec:
+  selector:
+    matchLabels:
+      app: foragri-falha
+  template:
+    metadata:
+      labels:
+        app: foragri-falha
+    spec:
+      containers:
+      - image: platiagro/foragri-falha:0.0.1
+        name: foragri-falha
+        ports:
+        - containerPort: 80

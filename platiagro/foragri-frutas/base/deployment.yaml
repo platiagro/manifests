@@ -1,18 +1,18 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: foragri-apps
+  name: foragri-frutas
 spec:
   selector:
     matchLabels:
-      app: foragri-apps
+      app: foragri-frutas
   template:
     metadata:
       labels:
-        app: foragri-apps
+        app: foragri-frutas
     spec:
       containers:
-      - image: platiagro/foragri-apps:0.0.1
-        name: foragri-apps
+      - image: platiagro/foragri-frutas:0.0.1
+        name: foragri-frutas
         ports:
         - containerPort: 80

@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: foragri-apps
+  name: foragri-frutas
 spec:
   gateways:
   - kubeflow-gateway
@@ -10,7 +10,7 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /apps
+        prefix: /frutas
     rewrite:
       uri: /
     route:

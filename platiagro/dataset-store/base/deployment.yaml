@@ -23,5 +23,17 @@ spec:
           value: ""
         - name: DB_DATABASE
           value: "projects"
+        - name: MINIO_HOST
+          value: "minio-service"
+        - name: MINIO_PORT
+          value: "9000"
+        - name: MINIO_ACCESS_KEY
+          value: "minio"
+        - name: MINIO_SECRET_KEY
+          value: "minio123"
+        - name: MINIO_BUCKET
+          value: "uploads"
+        - name: MINIO_UPLOAD_FOLDER_NAME
+          value: "uploads"
         ports:
         - containerPort: 4000

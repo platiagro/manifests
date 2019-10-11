@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: drift-model-explorer
+  name: model-drift-explorer
 spec:
   gateways:
   - kubeflow-gateway
@@ -17,5 +17,5 @@ spec:
     - destination:
         host: $(service).$(ui-namespace).svc.$(ui-clusterDomain)
         port:
-          number: 80
+          number: 3838
     timeout: 300s

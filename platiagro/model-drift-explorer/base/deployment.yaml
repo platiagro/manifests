@@ -1,18 +1,18 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: drift-model-explorer
+  name: model-drift-explorer
 spec:
   selector:
     matchLabels:
-      app: drift-model-explorer
+      app: model-drift-explorer
   template:
     metadata:
       labels:
-        app: drift-model-explorer
+        app: model-drift-explorer
     spec:
       containers:
-      - image: platiagro/drift-model-explorer:0.0.1
-        name: drift-model-explorer
+      - image: platiagro/model-drift-explorer:0.0.1
+        name: model-drift-explorer
         ports:
         - containerPort: 3838

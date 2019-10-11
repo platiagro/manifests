@@ -22,6 +22,6 @@ spec:
         - name: DB_ROOT_PASSWORD
           value: ""
         - name: DB_DATABASE
-          value: "dataset-store"
+          value: "projects"
         ports:
         - containerPort: 3000

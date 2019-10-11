@@ -14,5 +14,10 @@ spec:
       containers:
       - image: platiagro/web-ui:0.0.1
         name: web-ui
+        env:
+        - name: REACT_APP_DATASET_API
+          value: "dataset-store"
+        - name: REACT_APP_PROJECTS_API
+          value: "projects"
         ports:
         - containerPort: 80

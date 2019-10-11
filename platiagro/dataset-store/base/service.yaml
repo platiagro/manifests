@@ -6,6 +6,6 @@ metadata:
     app: dataset-store
 spec:
   ports:
-  - port: 3000
+  - port: 4000
   selector:
     app: dataset-store

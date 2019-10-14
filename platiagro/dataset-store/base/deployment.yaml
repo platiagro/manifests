@@ -32,7 +32,7 @@ spec:
         - name: MINIO_SECRET_KEY
           value: "minio123"
         - name: MINIO_BUCKET
-          value: "uploads"
+          value: "mlpipeline"
         - name: MINIO_UPLOAD_FOLDER_NAME
           value: "uploads"
         ports:

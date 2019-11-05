@@ -12,7 +12,7 @@ spec:
         app: web-ui
     spec:
       containers:
-      - image: platiagro/web-ui:0.0.1
+      - image: platiagro/web-ui:0.0.2
         name: web-ui
         env:
         - name: REACT_APP_DATASET_API

@@ -1,0 +1,27 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: pipeline-generator
+spec:
+  selector:
+    matchLabels:
+      app: pipeline-generator
+  template:
+    metadata:
+      labels:
+        app: pipeline-generator
+    spec:
+      containers:
+      - image: platiagro/pipeline-generator:0.0.1
+        name: pipeline-generator
+        env:
+        - name: DEBUG
+          value: "True"
+        - name: APP_PORT
+          value: "5000"
+        - name: FLASK_APP
+          value: "application.py"
+        - name: FLASK_ENV
+          value: "development"
+        ports:
+        - containerPort: 5000

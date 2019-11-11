@@ -1,0 +1,25 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: web-ui
+spec:
+  selector:
+    matchLabels:
+      app: web-ui
+  template:
+    metadata:
+      labels:
+        app: web-ui
+    spec:
+      containers:
+      - image: platiagro/web-ui:0.0.2
+        name: web-ui
+        env:
+        - name: REACT_APP_DATASET_API
+          value: "/datasets/apis"
+        - name: REACT_APP_PROJECTS_API
+          value: "/projects/apis"
+        - name: REACT_APP_PIPELINES_API
+          value: ""
+        ports:
+        - containerPort: 80

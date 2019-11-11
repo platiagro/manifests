@@ -1,0 +1,39 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: dataset-store
+spec:
+  selector:
+    matchLabels:
+      app: dataset-store
+  template:
+    metadata:
+      labels:
+        app: dataset-store
+    spec:
+      containers:
+      - image: platiagro/dataset-store:0.0.1
+        name: dataset-store
+        env:
+        - name: DB_HOST
+          value: "mysql"
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_ROOT_PASSWORD
+          value: ""
+        - name: DB_DATABASE
+          value: "projects"
+        - name: MINIO_HOST
+          value: "minio-service"
+        - name: MINIO_PORT
+          value: "9000"
+        - name: MINIO_ACCESS_KEY
+          value: "minio"
+        - name: MINIO_SECRET_KEY
+          value: "minio123"
+        - name: MINIO_BUCKET
+          value: "mlpipeline"
+        - name: MINIO_UPLOAD_FOLDER_NAME
+          value: "uploads"
+        ports:
+        - containerPort: 4000

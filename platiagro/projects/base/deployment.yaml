@@ -1,0 +1,27 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: projects
+spec:
+  selector:
+    matchLabels:
+      app: projects
+  template:
+    metadata:
+      labels:
+        app: projects
+    spec:
+      containers:
+      - image: platiagro/projects:0.0.2
+        name: projects
+        env:
+        - name: DB_HOST
+          value: "mysql"
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_ROOT_PASSWORD
+          value: ""
+        - name: DB_DATABASE
+          value: "projects"
+        ports:
+        - containerPort: 3000

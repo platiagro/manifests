@@ -12,7 +12,7 @@ spec:
         app: dataset-store
     spec:
       containers:
-      - image: platiagro/dataset-store:0.0.1
+      - image: platiagro/dataset-store:0.0.2
         name: dataset-store
         env:
         - name: DB_HOST

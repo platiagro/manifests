@@ -112,6 +112,7 @@ spec:
   - kustomizeConfig:
       overlays:
       - application
+      - istio
       parameters:
       - name: minioPvcName
         value: minio-pv-claim

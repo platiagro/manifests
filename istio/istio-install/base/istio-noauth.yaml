@@ -14044,7 +14044,7 @@ metadata:
     app: istio-ingressgateway
     istio: ingressgateway
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     release: istio
     app: istio-ingressgateway

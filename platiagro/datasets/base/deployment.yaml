@@ -1,0 +1,29 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: datasets
+spec:
+  selector:
+    matchLabels:
+      app: datasets
+  template:
+    metadata:
+      labels:
+        app: datasets
+    spec:
+      containers:
+      - image: platiagro/datasets:0.0.1
+        name: datasets
+        env:
+        - name: MINIO_HOST
+          value: "minio-service"
+        - name: MINIO_PORT
+          value: "9000"
+        - name: MINIO_ACCESS_KEY
+          value: "minio"
+        - name: MINIO_SECRET_KEY
+          value: "minio123"
+        - name: MINIO_BUCKET
+          value: "mlpipeline"
+        ports:
+        - containerPort: 8080

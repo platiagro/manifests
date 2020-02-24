@@ -10,9 +10,9 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /
+        prefix: /kubeflow/
     rewrite:
-      uri: /
+      uri: /kubeflow/
     route:
     - destination:
         host: centraldashboard.$(namespace).svc.$(clusterDomain)

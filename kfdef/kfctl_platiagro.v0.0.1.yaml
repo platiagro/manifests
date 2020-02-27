@@ -353,5 +353,5 @@ spec:
     name: web-ui
   repos:
   - name: manifests
-    uri: https://github.com/platiagro/manifests/archive/v0.0.1-kubeflow-v1.0.0-branch.tar.gz
+    uri: https://github.com/platiagro/manifests/archive/v0.0.1-kubeflow-v1.0-branch.tar.gz
   version: v0.0.1

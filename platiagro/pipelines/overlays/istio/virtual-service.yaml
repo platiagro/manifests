@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: datasets
+  name: pipelines
 spec:
   gateways:
   - kubeflow-gateway
@@ -10,7 +10,7 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /datasets/apis/
+        prefix: /pipelines/apis/
     rewrite:
       uri: /
     route:

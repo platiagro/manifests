@@ -36,7 +36,7 @@ patchesStrategicMerge:
 - katib-mysql-deployment.yaml
 images:
   - name: mysql
-    newTag: "5.6"
+    newTag: "5.7"
     newName: mysql
 `)
 	th.writeF("/manifests/katib/katib-controller/base/katib-configmap.yaml", `

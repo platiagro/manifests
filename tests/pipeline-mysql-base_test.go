@@ -29,7 +29,7 @@ spec:
         env:
         - name: MYSQL_ALLOW_EMPTY_PASSWORD
           value: "true"
-        image: mysql:5.6
+        image: mysql:5.7
         ports:
         - containerPort: 3306
           name: mysql
@@ -94,7 +94,7 @@ vars:
     fieldpath: data.mysqlPvcName
 images:
 - name: mysql
-  newTag: '5.6'
+  newTag: '5.7'
   newName: mysql
 configurations:
 - params.yaml

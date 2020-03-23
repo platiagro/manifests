@@ -21,7 +21,7 @@ bases:
 - ../../base
 images:
   - name: mysql
-    newTag: "5.6"
+    newTag: "5.7"
     newName: mysql
 `)
 	th.writeF("/manifests/metadata/base/metadata-deployment.yaml", `

@@ -6,6 +6,6 @@ metadata:
     app: projects
 spec:
   ports:
-  - port: 3000
+    - port: 8080
   selector:
     app: projects

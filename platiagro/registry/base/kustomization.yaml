@@ -11,7 +11,7 @@ resources:
 generatorOptions:
   disableNameSuffixHash: true
 vars:
-  - name: registryPvcName
+  - name: registry-pvc-name
     objref:
       kind: ConfigMap
       name: ui-parameters

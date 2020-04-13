@@ -8,6 +8,8 @@ resources:
   - deployment.yaml
   - service.yaml
   - persistent-volume-claim.yaml
+generatorOptions:
+  disableNameSuffixHash: true
 vars:
   - name: registryPvcName
     objref:

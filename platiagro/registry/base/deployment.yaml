@@ -16,3 +16,10 @@ spec:
           name: registry
           ports:
             - containerPort: 5000
+          volumeMounts:
+            - mountPath: /var/lib/registry
+              name: registry-persistent-storage
+      volumes:
+        - name: registry-persistent-storage
+          persistentVolumeClaim:
+            claimName: $(registryPvcName)

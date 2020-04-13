@@ -8,16 +8,7 @@ resources:
   - deployment.yaml
   - service.yaml
   - persistent-volume-claim.yaml
-generatorOptions:
-  disableNameSuffixHash: true
 vars:
-  - name: registry-pvc-name
-    objref:
-      kind: ConfigMap
-      name: ui-parameters
-      version: v1
-    fieldref:
-      fieldpath: data.registryPvcName
   - name: service
     objref:
       kind: Service

@@ -25,3 +25,4 @@ spec:
               value: "minio123"
           ports:
             - containerPort: 8080
+      serviceAccountName: pipelines

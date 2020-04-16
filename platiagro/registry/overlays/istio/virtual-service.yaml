@@ -1,16 +1,31 @@
 apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: registry-gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 81
+        name: http
+        protocol: HTTP
+      hosts:
+        - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
   name: registry
 spec:
   gateways:
-    - kubeflow-gateway
+    - registry-gateway
   hosts:
     - "*"
   http:
     - match:
         - uri:
-            prefix: /registry/
+            prefix: /
       rewrite:
         uri: /
       route:
@@ -18,5 +33,4 @@ spec:
             host: $(service).$(ui-namespace).svc.$(ui-clusterDomain)
             port:
               number: 5000
-              protocol: TCP
       timeout: 300s

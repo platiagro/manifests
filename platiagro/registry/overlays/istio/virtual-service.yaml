@@ -18,4 +18,5 @@ spec:
             host: $(service).$(ui-namespace).svc.$(ui-clusterDomain)
             port:
               number: 5000
+              protocol: TCP
       timeout: 300s

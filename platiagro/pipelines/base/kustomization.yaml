@@ -5,9 +5,9 @@ configMapGenerator:
   - name: ui-parameters
     env: params.env
 resources:
+  - cluster-role-binding.yaml
+  - cluster-role.yaml
   - deployment.yaml
-  - role-binding.yaml
-  - role.yaml
   - service-account.yaml
   - service.yaml
 vars:

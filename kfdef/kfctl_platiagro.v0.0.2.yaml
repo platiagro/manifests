@@ -248,5 +248,5 @@ spec:
       name: registry
   repos:
     - name: manifests
-      uri: https://github.com/platiagro/manifests/archive/v0.0.1-kubeflow-v1.0-branch.tar.gz
-  version: v0.0.1
+      uri: https://github.com/platiagro/manifests/archive/v0.0.2-kubeflow-v1.0-branch.tar.gz
+  version: v0.0.2

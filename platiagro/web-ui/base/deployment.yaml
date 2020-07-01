@@ -16,3 +16,9 @@ spec:
         name: web-ui
         ports:
         - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 30

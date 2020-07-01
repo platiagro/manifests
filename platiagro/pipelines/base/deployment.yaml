@@ -25,4 +25,10 @@ spec:
               value: "minio123"
           ports:
             - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 30
       serviceAccountName: pipelines

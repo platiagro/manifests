@@ -32,9 +32,9 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /pipeline
+        prefix: /pipeline/
     rewrite:
-      uri: /pipeline
+      uri: /pipeline/
     route:
     - destination:
         host: $(service).$(ui-namespace).svc.$(ui-clusterDomain)

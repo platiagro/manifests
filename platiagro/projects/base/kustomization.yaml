@@ -1,0 +1,31 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: kubeflow
+configMapGenerator:
+- name: ui-parameters
+  env: params.env
+resources:
+- deployment.yaml
+- service.yaml
+vars:
+- name: ui-namespace
+  objref:
+    kind: Service
+    name: projects
+    apiVersion: v1
+  fieldref:
+    fieldpath: metadata.namespace
+- name: ui-clusterDomain
+  objref:
+    kind: ConfigMap
+    name: ui-parameters
+    version: v1
+  fieldref:
+    fieldpath: data.uiClusterDomain
+- name: service
+  objref:
+    kind: Service
+    name: projects
+    apiVersion: v1
+  fieldref:
+    fieldpath: metadata.name

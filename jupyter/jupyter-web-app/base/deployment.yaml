@@ -22,7 +22,7 @@ spec:
           value: $(userid-header)
         - name: USERID_PREFIX
           value: $(userid-prefix)
-        image: platiagro/jupyter-web-app:v0.1.0
+        image: platiagro/jupyter-web-app:0.1.0
         imagePullPolicy: $(policy)
         name: jupyter-web-app
         ports:

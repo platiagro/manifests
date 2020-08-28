@@ -9,8 +9,10 @@ data:
         "DriverName": "mysql",
         "DataSourceName": "",
         "DBName": "mlpipeline"
+        "Host": "mysql.kubeflow",
       },
       "ObjectStoreConfig":{
+        "Endpoint": "minio-service.kubeflow:9000",
         "AccessKey": "minio",
         "SecretAccessKey": "minio123",
         "BucketName": "mlpipeline"

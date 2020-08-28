@@ -134,9 +134,6 @@ spec:
           path: pipeline/api-service
       name: api-service
     - kustomizeConfig:
-        parameters:
-          - name: namespace
-            value: deployments
         overlays:
           - application
         parameters:
@@ -147,9 +144,6 @@ spec:
           path: pipeline/minio
       name: minio
     - kustomizeConfig:
-        parameters:
-          - name: namespace
-            value: deployments
         overlays:
           - application
         parameters:

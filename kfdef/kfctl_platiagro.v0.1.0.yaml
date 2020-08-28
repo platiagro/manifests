@@ -124,9 +124,6 @@ spec:
           path: jupyter/notebook-controller
       name: notebook-controller
     - kustomizeConfig:
-        parameters:
-          - name: namespace
-            value: deployments
         overlays:
           - application
         repoRef:
@@ -154,9 +151,6 @@ spec:
           path: pipeline/mysql
       name: mysql
     - kustomizeConfig:
-        parameters:
-          - name: namespace
-            value: deployments
         overlays:
           - application
         repoRef:
@@ -164,9 +158,6 @@ spec:
           path: pipeline/persistent-agent
       name: persistent-agent
     - kustomizeConfig:
-        parameters:
-          - name: namespace
-            value: deployments
         overlays:
           - application
         repoRef:
@@ -174,9 +165,6 @@ spec:
           path: pipeline/pipelines-runner
       name: pipelines-runner
     - kustomizeConfig:
-        parameters:
-          - name: namespace
-            value: deployments
         overlays:
           - istio
           - application
@@ -185,9 +173,6 @@ spec:
           path: pipeline/pipelines-ui
       name: pipelines-ui
     - kustomizeConfig:
-        parameters:
-          - name: namespace
-            value: deployments
         overlays:
           - application
         repoRef:
@@ -195,9 +180,6 @@ spec:
           path: pipeline/pipelines-viewer
       name: pipelines-viewer
     - kustomizeConfig:
-        parameters:
-          - name: namespace
-            value: deployments
         overlays:
           - application
         repoRef:
@@ -205,9 +187,6 @@ spec:
           path: pipeline/scheduledworkflow
       name: scheduledworkflow
     - kustomizeConfig:
-        parameters:
-          - name: namespace
-            value: deployments
         overlays:
           - application
         repoRef:

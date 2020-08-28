@@ -241,5 +241,5 @@ spec:
       name: web-ui
   repos:
     - name: manifests
-      uri: https://github.com/platiagro/manifests/archive/v0.1.0-kubeflow-v1.0-branch.tar.gz
+      uri: https://github.com/platiagro/manifests/archive/change-pipeline-namespace.tar.gz
   version: v0.1.0

@@ -6,10 +6,10 @@ data:
   config.json: |
     {
       "DBConfig": {
+        "Host": "mysql.kubeflow",
         "DriverName": "mysql",
         "DataSourceName": "",
         "DBName": "mlpipeline"
-        "Host": "mysql.kubeflow",
       },
       "ObjectStoreConfig":{
         "Endpoint": "minio-service.kubeflow:9000",

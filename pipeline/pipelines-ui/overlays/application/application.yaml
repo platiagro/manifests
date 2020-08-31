@@ -5,18 +5,18 @@ metadata:
 spec:
   addOwnerRef: true
   componentKinds:
-  - group: core
-    kind: ConfigMap
-  - group: apps
-    kind: Deployment
+    - group: core
+      kind: ConfigMap
+    - group: apps
+      kind: Deployment
   descriptor:
-    description: ''
+    description: ""
     keywords:
-    - pipelines-ui
-    - kubeflow
+      - pipelines-ui
+      - kubeflow
     links:
-    - description: About
-      url: ''
+      - description: About
+        url: ""
     maintainers: []
     owners: []
     type: pipelines-ui
@@ -27,5 +27,5 @@ spec:
       app.kubernetes.io/instance: pipelines-ui-0.2.5
       app.kubernetes.io/managed-by: kfctl
       app.kubernetes.io/name: pipelines-ui
-      app.kubernetes.io/part-of: kubeflow
+      app.kubernetes.io/part-of: deployments
       app.kubernetes.io/version: 0.2.5

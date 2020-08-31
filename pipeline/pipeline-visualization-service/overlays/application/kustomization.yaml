@@ -11,4 +11,3 @@ commonLabels:
 kind: Kustomization
 resources:
   - application.yaml
-namespace: deployments

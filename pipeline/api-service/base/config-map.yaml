@@ -12,7 +12,7 @@ data:
         "DBName": "mlpipeline"
       },
       "ObjectStoreConfig":{
-        "Endpoint": "minio-service.kubeflow:9000",
+        "Host": "minio-service.kubeflow:9000",
         "AccessKey": "minio",
         "SecretAccessKey": "minio123",
         "BucketName": "mlpipeline"

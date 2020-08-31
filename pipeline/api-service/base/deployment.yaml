@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ml-pipeline
-  namespace: deployments
 spec:
   template:
     spec:

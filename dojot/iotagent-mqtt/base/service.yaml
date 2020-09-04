@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: iotagent-mqtt-external
+  labels:
+    app: iotagent-mqtt
+spec:
+  type: NodePort
+  ports:
+  - port: 1883
+    nodePort: 31883
+    name: mqtt
+  - port: 8883
+    nodePort: 31884
+    name: mqtt-tls
+  selector:
+    app: iotagent-mqtt
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: iotagent-mqtt
+  labels:
+    app: iotagent-mqtt
+spec:
+  ports:
+  - port: 10001
+  selector:
+    app: iotagent-mqtt

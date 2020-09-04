@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: device-manager-redis
+  name: device-manager-redis
+spec:
+  selector:
+    matchLabels:
+      app: device-manager-redis
+  template:
+    metadata:
+      labels:
+        app: device-manager-redis
+    spec:
+      containers:
+        - name: device-manager-redis
+          image: dojot/redis:5.0.5-alpine3.10
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 6379

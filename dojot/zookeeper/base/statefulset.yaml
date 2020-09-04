@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: zookeeper
+  name: zookeeper
+spec:
+  selector:
+    matchLabels:
+      app: zookeeper
+  template:
+    metadata:
+      labels:
+        app: zookeeper
+    spec:
+      containers:
+        - name: zookeeper
+          image: dojot/zookeeper:3.4
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 2181
+            - containerPort: 2888
+            - containerPort: 3888

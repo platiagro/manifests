@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: gui
+  name: gui
+spec:
+  selector:
+    matchLabels:
+      app: gui
+  template:
+    metadata:
+      labels:
+        app: gui
+    spec:
+      containers:
+        - name: gui
+          image: dojot/gui:v0.4.3
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 80

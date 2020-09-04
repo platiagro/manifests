@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: iotagent-lwm2m
+  labels:
+    app: iotagent-lwm2m
+spec:
+  type: NodePort
+  ports:
+  - port: 5896
+    nodePort: 30896
+    protocol: TCP
+    name: file-server-http-port
+  - port: 5683
+    nodePort: 30683
+    protocol: UDP
+    name: configuration-coap-port
+  - port: 5684
+    nodePort: 30684
+    protocol: UDP
+    name: configuration-dtls-port
+  - port: 5693
+    nodePort: 30693
+    protocol: UDP
+    name: file-server-coap-port
+  - port: 5694
+    nodePort: 30694
+    protocol: UDP
+    name: file-server-dtls-port
+  selector:
+    app: iotagent-lwm2m

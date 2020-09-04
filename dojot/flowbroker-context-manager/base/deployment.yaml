@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: flowbroker-context-manager
+  name: flowbroker-context-manager
+spec:
+  selector:
+    matchLabels:
+      app: flowbroker-context-manager
+  template:
+    metadata:
+      labels:
+        app: flowbroker-context-manager
+    spec:
+      containers:
+        - name: flowbroker-context-manager
+          env:
+          - name: ZOOKEEPER_HOST
+            value: zookeeper
+          - name: ZOOKEEPER_PORT
+            value: "2181"
+          - name: ZEROMQ_PORT
+            value: "5556"
+          - name: HOLD_LOCK_TIMEOUT
+            value: "10000"
+          - name: WAIT_LOCK_TIMEOUT
+            value: "30000"
+          image: dojot/flowbroker-context-manager:v0.4.3
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 80

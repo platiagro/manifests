@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: history
+  name: history
+spec:
+  selector:
+    matchLabels:
+      app: history
+  template:
+    metadata:
+      labels:
+        app: history
+    spec:
+      containers:
+        - name: history
+          env:
+          - name: FALCON_SETTINGS_MODULE
+            value: history.settings.docker
+          - name: DOJOT_MANAGEMENT_USER
+            value: history
+          image: dojot/history:v0.4.3
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 8000

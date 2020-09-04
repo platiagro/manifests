@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: iotagent-mqtt
+  name: iotagent-mqtt
+spec:
+  selector:
+    matchLabels:
+      app: iotagent-mqtt
+  template:
+    metadata:
+      labels:
+        app: iotagent-mqtt
+    spec:
+      containers:
+        - name: iotagent-mqtt
+          env:
+          - name: DOJOT_MANAGEMENT_USER
+            value: iotagent-mqtt
+          - name: KAFKA_GROUP_ID
+            value: iotagent-mqtt-group
+          - name: ALLOW_UNSECURED_MODE
+            value: "true"
+          - name: MOSCA_TLS_DNS_LIST
+            value: localhost
+          image: dojot/iotagent-mosca:v0.4.3
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 1883
+            - containerPort: 8883
+            - containerPort: 10001

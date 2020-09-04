@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: dojot
+spec:
+  gateways:
+  - kubeflow-gateway
+  hosts:
+  - '*'
+  http:
+  - match:
+    - uri:
+        prefix: /dojot
+    rewrite:
+      uri: /
+    route:
+    - destination:
+        host: $(service).$(ui-namespace).svc.$(ui-clusterDomain)
+        port:
+          number: 8000
+    timeout: 300s

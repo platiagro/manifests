@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: data-broker
+  name: data-broker
+spec:
+  selector:
+    matchLabels:
+      app: data-broker
+  template:
+    metadata:
+      labels:
+        app: data-broker
+    spec:
+      containers:
+        - name: data-broker
+          env:
+            - name: DOJOT_MANAGEMENT_USER
+              value: data-broker
+            - name: KAFKA_GROUP_ID
+              value: data-broker-group
+          image: dojot/data-broker:v0.4.3
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 80

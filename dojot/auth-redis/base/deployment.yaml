@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: auth-redis
+  name: auth-redis
+spec:
+  selector:
+    matchLabels:
+      app: auth-redis
+  template:
+    metadata:
+      labels:
+        app: auth-redis
+    spec:
+      containers:
+        - name: auth-redis
+          image: dojot/redis:5.0.5-alpine3.10
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 6379

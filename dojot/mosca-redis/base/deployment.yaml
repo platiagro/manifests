@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mosca-redis
+  name: mosca-redis
+spec:
+  selector:
+    matchLabels:
+      app: mosca-redis
+  template:
+    metadata:
+      labels:
+        app: mosca-redis
+    spec:
+      containers:
+        - name: mosca-redis
+          image: dojot/redis:5.0.5-alpine3.10
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 6379

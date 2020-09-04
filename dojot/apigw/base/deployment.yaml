@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dojot
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: apigw
+  name: apigw
+spec:
+  selector:
+    matchLabels:
+      app: apigw
+  template:
+    metadata:
+      labels:
+        app: apigw
+    spec:
+      containers:
+        - name: apigw
+          env:
+          - name: KONG_DATABASE
+            value: postgres
+          - name: KONG_PG_HOST
+            value: postgres
+          image: dojot/kong:v0.4.3
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+            - containerPort: 8001
+            - containerPort: 8444

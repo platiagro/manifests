@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: device-manager
+  name: device-manager
+spec:
+  selector:
+    matchLabels:
+      app: device-manager
+  template:
+    metadata:
+      labels:
+        app: device-manager
+    spec:
+      containers:
+        - name: device-manager
+          env:
+            - name: DEV_MNGR_CRYPTO_PASS
+              value: kamehameHA
+            - name: DEV_MNGR_CRYPTO_IV
+              value: "1234567890123456"
+            - name: DEV_MNGR_CRYPTO_SALT
+              value: shuriken
+            - name: LOG_LEVEL
+              value: DEBUG
+            - name: STATUS_TIMEOUT
+              value: "60"
+          image: dojot/device-manager:v0.4.3
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 5000

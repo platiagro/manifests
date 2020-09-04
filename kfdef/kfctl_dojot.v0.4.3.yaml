@@ -1,0 +1,260 @@
+apiVersion: kfdef.apps.kubeflow.org/v1
+kind: KfDef
+metadata:
+  namespace: dojot
+spec:
+  applications:
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: istio-system
+        repoRef:
+          name: manifests
+          path: istio/istio-crds
+      name: istio-crds
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: istio-system
+        repoRef:
+          name: manifests
+          path: istio/istio-install
+      name: istio-install
+    - kustomizeConfig:
+        parameters:
+          - name: clusterRbacConfig
+            value: "OFF"
+        repoRef:
+          name: manifests
+          path: istio/istio
+      name: istio
+    - kustomizeConfig:
+        overlays:
+          - istio
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/apigw
+      name: apigw
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/auth
+      name: auth
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/auth-redis
+      name: auth-redis
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/backstage
+      name: backstage
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/cron
+      name: cron
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/data-broker
+      name: data-broker
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/data-broker-redis
+      name: data-broker-redis
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/data-manager
+      name: data-manager
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/device-manager
+      name: device-manager
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/device-manager-redis
+      name: device-manager-redis
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/ejbca
+      name: ejbca
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/flowbroker
+      name: flowbroker
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/flowbroker-context-manager
+      name: flowbroker-context-manager
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/flowbroker-redis
+      name: flowbroker-redis
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/flowbroker-redis
+      name: flowbroker-redis
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/gui
+      name: gui
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/history
+      name: history
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/image-manager
+      name: image-manager
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/iotagent-lwm2m
+      name: iotagent-lwm2m
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/iotagent-mqtt
+      name: iotagent-mqtt
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/kafka
+      name: kafka
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/minio
+      name: minio
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/mongodb
+      name: mongodb
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/mosca-redis
+      name: mosca-redis
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/persister
+      name: persister
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/postgres
+      name: postgres
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/rabbitmq
+      name: rabbitmq
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/zookeeper
+      name: zookeeper
+  repos:
+    - name: manifests
+      uri: https://github.com/platiagro/manifests/archive/feature/dojot-installer.tar.gz
+  version: v0.4.3

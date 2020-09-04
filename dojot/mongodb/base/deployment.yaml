@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mongodb
+  name: mongodb
+spec:
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      containers:
+        - name: mongodb
+          env:
+          - name: MINIO_ACCESS_KEY
+            value: 9HEODSF6WQN5EZ39DM7Z
+          - name: MINIO_SECRET_KEY
+            value: fT5nAgHR9pkj0yYsBdc4p+PPq6ArjshcPdz0HA6W
+          image: dojot/mongo:3.2
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 27017

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: persister
+  labels:
+    app: persister
+spec:
+  ports:
+  - port: 8057
+  selector:
+    app: persister

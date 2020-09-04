@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: flowbroker
+  name: flowbroker
+spec:
+  selector:
+    matchLabels:
+      app: flowbroker
+  template:
+    metadata:
+      labels:
+        app: flowbroker
+    spec:
+      containers:
+        - name: flowbroker
+          env:
+          - name: DEPLOY_ENGINE
+            value: docker
+          - name: FLOWBROKER_NETWORK
+            value: flowbroker
+          - name: DOJOT_MANAGEMENT_USER
+            value: flowbroker
+          - name: KAFKA_GROUP_ID
+            value: flowbroker-group
+          - name: LOG_LEVEL
+            value: info
+          image: dojot/flowbroker:v0.4.3
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 80

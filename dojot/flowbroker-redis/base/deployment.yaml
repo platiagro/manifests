@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: flowbroker-redis
+  name: flowbroker-redis
+spec:
+  selector:
+    matchLabels:
+      app: flowbroker-redis
+  template:
+    metadata:
+      labels:
+        app: flowbroker-redis
+    spec:
+      containers:
+        - name: flowbroker-redis
+          image: dojot/redis:5.0.5-alpine3.10
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 6379

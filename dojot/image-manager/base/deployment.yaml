@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: image-manager
+  name: image-manager
+spec:
+  selector:
+    matchLabels:
+      app: image-manager
+  template:
+    metadata:
+      labels:
+        app: image-manager
+    spec:
+      containers:
+        - name: image-manager
+          env:
+          - name: S3ACCESSKEY
+            value: 9HEODSF6WQN5EZ39DM7Z
+          - name: S3SECRETKEY
+            value: fT5nAgHR9pkj0yYsBdc4p
+          image: dojot/image-manager:v0.4.3
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 5000

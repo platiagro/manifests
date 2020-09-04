@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: minio
+  name: minio
+spec:
+  selector:
+    matchLabels:
+      app: minio
+  template:
+    metadata:
+      labels:
+        app: minio
+    spec:
+      containers:
+        - name: minio
+          env:
+          - name: MINIO_ACCESS_KEY
+            value: 9HEODSF6WQN5EZ39DM7Z
+          - name: MINIO_SECRET_KEY
+            value: fT5nAgHR9pkj0yYsBdc4p+PPq6ArjshcPdz0HA6W
+          image: dojot/minio:2019.09.20
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 9000
+          args:
+            - server
+            - /data

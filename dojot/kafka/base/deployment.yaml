@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: kafka
+  name: kafka
+spec:
+  selector:
+    matchLabels:
+      app: kafka
+  template:
+    metadata:
+      labels:
+        app: kafka
+    spec:
+      containers:
+        - name: kafka
+          env:
+          - name: KAFKA_ZOOKEEPER_CONNECT
+            value: zookeeper:2181
+          - name: KAFKA_ADVERTISED_HOST_NAME
+            value: kafka
+          - name: KAFKA_PORT
+            value: "9092"
+          - name: KAFKA_NUM_PARTITIONS
+            value: "10"
+          - name: JMX_PORT
+            value: "1099"
+          image: dojot/wurstmeister-kafka:2.12-2.1.1
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 9092

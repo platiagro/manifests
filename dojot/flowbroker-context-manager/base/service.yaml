@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flowbroker-context-manager
+  labels:
+    app: flowbroker-context-manager
+spec:
+  ports:
+  - port: 80
+  selector:
+    app: flowbroker-context-manager

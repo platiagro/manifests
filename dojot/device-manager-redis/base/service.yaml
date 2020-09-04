@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: device-manager-redis
+  labels:
+    app: device-manager-redis
+spec:
+  ports:
+  - port: 6379
+  selector:
+    app: device-manager-redis

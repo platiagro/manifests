@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: data-manager
+  name: data-manager
+spec:
+  selector:
+    matchLabels:
+      app: data-manager
+  template:
+    metadata:
+      labels:
+        app: data-manager
+    spec:
+      containers:
+        - name: data-manager
+          image: dojot/data-manager:v0.4.3
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 3000

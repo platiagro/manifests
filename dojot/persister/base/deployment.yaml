@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: persister
+  name: persister
+spec:
+  selector:
+    matchLabels:
+      app: persister
+  template:
+    metadata:
+      labels:
+        app: persister
+    spec:
+      containers:
+        - name: persister
+          env:
+          - name: FALCON_SETTINGS_MODULE
+            value: history.settings.docker
+          - name: DOJOT_MANAGEMENT_USER
+            value: persister
+          - name: KAFKA_GROUP_ID
+            value: persister-group
+          image: dojot/persister:v0.4.3
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 8057

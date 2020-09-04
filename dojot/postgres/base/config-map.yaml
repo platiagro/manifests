@@ -1,0 +1,18 @@
+apiVersion: v1
+data:
+  postgres-users.sh: |
+    if ! psql -h postgres -U postgres -t -c '\du' | cut -d \| -f 1 | grep -qw kong; then
+        echo 'creating user kong'
+        createuser kong -d -h postgres -U postgres
+    else
+        echo 'user kong exists'
+    fi
+    if ! psql -h postgres -U postgres -lqt | cut -d \| -f 1 | grep -qw kong; then
+        echo 'creating database kong'
+        createdb kong -U kong -h postgres
+    else
+        echo 'database kong exists'
+    fi
+kind: ConfigMap
+metadata:
+  name: postgres-config-map

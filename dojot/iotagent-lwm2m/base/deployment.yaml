@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: iotagent-lwm2m
+  name: iotagent-lwm2m
+spec:
+  selector:
+    matchLabels:
+      app: iotagent-lwm2m
+  template:
+    metadata:
+      labels:
+        app: iotagent-lwm2m
+    spec:
+      containers:
+        - name: iotagent-lwm2m
+          env:
+          - name: DOJOT_MANAGEMENT_USER
+            value: iotagent-lwm2m
+          - name: KAFKA_GROUP_ID
+            value: iotagent-lwm2m-group
+          - name: FILE_SERVER_ADDRESS
+            value: "127.0.0.1"
+          image: dojot/iotagent-leshan:v0.4.3
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5896
+            - containerPort: 5683
+              protocol: UDP
+            - containerPort: 5684
+              protocol: UDP
+            - containerPort: 5693
+              protocol: UDP
+            - containerPort: 5694
+              protocol: UDP

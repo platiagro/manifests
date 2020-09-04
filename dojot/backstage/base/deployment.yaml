@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: backstage
+  name: backstage
+spec:
+  selector:
+    matchLabels:
+      app: backstage
+  template:
+    metadata:
+      labels:
+        app: backstage
+    spec:
+      containers:
+        - name: backstage
+          image: dojot/backstage:v0.4.3
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 3005

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: data-broker-redis
+  name: data-broker-redis
+spec:
+  selector:
+    matchLabels:
+      app: data-broker-redis
+  template:
+    metadata:
+      labels:
+        app: data-broker-redis
+    spec:
+      containers:
+        - name: data-broker-redis
+          image: dojot/redis:5.0.5-alpine3.10
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 6379

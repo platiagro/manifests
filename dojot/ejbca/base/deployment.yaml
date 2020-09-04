@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ejbca
+  name: ejbca
+spec:
+  selector:
+    matchLabels:
+      app: ejbca
+  template:
+    metadata:
+      labels:
+        app: ejbca
+    spec:
+      containers:
+        - name: ejbca
+          env:
+          - name: DOJOT_MANAGEMENT_USER
+            value: ejbca
+          - name: KAFKA_GROUP_ID
+            value: ejbca-group
+          image: dojot/ejbca-rest:v0.4.3
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 5583

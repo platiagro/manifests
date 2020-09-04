@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: cron
+  name: cron
+spec:
+  selector:
+    matchLabels:
+      app: cron
+  template:
+    metadata:
+      labels:
+        app: cron
+    spec:
+      containers:
+        - name: cron
+          image: dojot/cron:v0.4.3
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 5000

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: gui
-          image: dojot/gui:v0.4.3
+          image: platiagro/dojot-gui:v0.4.3
           imagePullPolicy: IfNotPresent
           ports:
           - containerPort: 80

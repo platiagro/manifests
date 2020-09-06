@@ -4,7 +4,7 @@ metadata:
   name: dojot
 spec:
   gateways:
-  - kubeflow-gateway
+  - kubeflow/kubeflow-gateway
   hosts:
   - '*'
   http:

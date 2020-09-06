@@ -9,6 +9,8 @@ spec:
     spec:
       containers:
       - name: mysql
+        args:
+        - "--ignore-db-dir=lost+found"
         env:
         - name: MYSQL_ALLOW_EMPTY_PASSWORD
           value: "true"

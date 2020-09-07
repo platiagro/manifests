@@ -21,7 +21,6 @@ spec:
             - /bin/sh
             - -c
             - "until nc -zv $KONG_PG_HOST $KONG_PG_PORT -w1; do echo 'waiting for db'; sleep 1; done"
-      containers:
         - name: kong-migrations
           image: dojot/kong:v0.4.3
           env:
@@ -35,4 +34,27 @@ spec:
             - /bin/sh
             - -c
             - "kong migrations up"
+        - name: wait-for-apigw
+          image: dojot/appropriate-curl
+          args:
+          - /bin/sh
+          - -c
+          - >
+            set -x;
+            while [ $(curl -sw '%{http_code}' "http://apigw:8001" -o /dev/null) -ne 200 ]; do
+              sleep 5;
+            done
+      containers:
+        - name: kong-config
+          image: dojot/appropriate-curl
+          command:
+            - /opt/kong.config.sh
+          volumeMounts:
+            - mountPath: /opt/
+              name: kong-config
       restartPolicy: OnFailure
+      volumes:
+        - configMap:
+            name: kong-config-map
+            defaultMode: 0777
+          name: kong-config

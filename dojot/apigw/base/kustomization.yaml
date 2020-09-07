@@ -9,7 +9,6 @@ resources:
 - deployment.yaml
 - service.yaml
 - kong-migration.yaml
-- kong-config.yaml
 vars:
 - name: ui-namespace
   objref:

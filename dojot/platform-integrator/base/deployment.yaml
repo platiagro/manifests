@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: platform-integrator
+  name: platform-integrator
+spec:
+  selector:
+    matchLabels:
+      app: platform-integrator
+  template:
+    metadata:
+      labels:
+        app: platform-integrator
+    spec:
+      containers:
+        - name: platform-integrator
+          env:
+          - name: DOJOT_ENDPOINT
+            value: dojot:8000
+          - name: DOJOT_USERNAME
+            value: admin
+          - name: DOJOT_PASSWORD
+            value: admin
+          - name: DOJOT_DEVICE
+            value: all
+          - name: PLATIAGRO_ENDPOINT
+            value: platiagro
+          - name: EXPERIMENT_ID
+            value: dfd7a767-a20c-4424-bf1b-287071218de1
+          - name: SERVER_PORT
+            value: 3030
+          - name: SERVER_KEY
+            value: dfd7a767-a20c-4424-bf1b-287071218de1
+          image: platiagro/dojot-integration:0.1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 3030

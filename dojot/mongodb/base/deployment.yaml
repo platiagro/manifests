@@ -24,3 +24,15 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
           - containerPort: 27017
+          volumeMounts:
+          - mountPath: /data
+            name: data
+          - mountPath: /data/configdb
+            name: config
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: mongodb-data
+      - name: config
+        persistentVolumeClaim:
+          claimName: mongodb-config

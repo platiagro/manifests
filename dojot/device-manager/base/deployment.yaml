@@ -26,6 +26,8 @@ spec:
               value: DEBUG
             - name: STATUS_TIMEOUT
               value: "60"
+            - name: KAFKA_PORT
+              value: "9092"
           image: dojot/device-manager:v0.4.3
           imagePullPolicy: IfNotPresent
           ports:

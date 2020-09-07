@@ -20,6 +20,8 @@ spec:
             value: history.settings.docker
           - name: DOJOT_MANAGEMENT_USER
             value: history
+          - name: KAFKA_PORT
+            value: "9092"
           image: dojot/history:v0.4.3
           imagePullPolicy: IfNotPresent
           ports:

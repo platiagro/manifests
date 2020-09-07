@@ -19,3 +19,10 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
           - containerPort: 6379
+          volumeMounts:
+          - mountPath: /data
+            name: data
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: data-broker-redis

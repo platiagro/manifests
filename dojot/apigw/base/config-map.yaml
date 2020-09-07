@@ -21,9 +21,9 @@ data:
         -d @- ) <<PAYLOAD
     {
         "name": "gui",
-        "uris": "/dojot",
+        "uris": ["/", "/dojot"],
         "strip_uri": false,
-        "upstream_url": "http://gui:80/dojot"
+        "upstream_url": "http://gui:80"
     }
     PAYLOAD
     # no auth: serves only static front-end content

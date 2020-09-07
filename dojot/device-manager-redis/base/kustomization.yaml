@@ -4,3 +4,4 @@ namespace: dojot
 resources:
 - deployment.yaml
 - service.yaml
+- persistent-volume-claim.yaml

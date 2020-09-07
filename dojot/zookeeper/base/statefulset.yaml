@@ -21,3 +21,20 @@ spec:
             - containerPort: 2181
             - containerPort: 2888
             - containerPort: 3888
+          volumeMounts:
+          - mountPath: /data
+            name: data
+          - mountPath: /logs
+            name: logs
+          - mountPath: /datalog
+            name: datalog
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: zookeeper-data
+      - name: logs
+        persistentVolumeClaim:
+          claimName: zookeeper-logs
+      - name: datalog
+        persistentVolumeClaim:
+          claimName: zookeeper-datalog

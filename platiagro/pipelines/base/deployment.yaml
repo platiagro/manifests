@@ -23,6 +23,8 @@ spec:
               value: "minio"
             - name: MINIO_SECRET_KEY
               value: "minio123"
+            - name: JUPYTER_ENDPOINT
+              value: "http://server.anonymous:80/notebook/anonymous/server"
           ports:
             - containerPort: 8080
           livenessProbe:

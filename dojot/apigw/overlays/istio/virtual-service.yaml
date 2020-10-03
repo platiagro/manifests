@@ -12,7 +12,7 @@ spec:
     - uri:
         prefix: /dojot
     rewrite:
-      uri: /dojot
+      uri: /
     route:
     - destination:
         host: $(service).$(ui-namespace).svc.$(ui-clusterDomain)

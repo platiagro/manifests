@@ -270,6 +270,16 @@ data:
     }
     PAYLOAD
     authConfig "iotagent-mqtt"
+
+    # cors
+    curl -o /dev/null ${kong}/plugins -X POST \
+    --data "name=cors"  \
+    --data "config.origins=*" \
+    --data "config.credentials=true" \
+    --data "config.methods=GET" \
+    --data "config.methods=POST" \
+    --data "config.headers=Authorization,Date,Accept,Accept-Version,Content-Length,Content-MD5,Content-Type" \
+    --data "config.max_age=3600"
 kind: ConfigMap
 metadata:
   name: kong-config-map

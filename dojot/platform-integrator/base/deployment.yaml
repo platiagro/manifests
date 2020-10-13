@@ -15,21 +15,25 @@ spec:
     spec:
       containers:
         - name: platform-integrator
+          command: ["/bin/sh"]
+          args: ["-c", "knex migrate:latest && knex seed:run && npm start"]
           env:
           - name: DOJOT_ENDPOINT
-            value: dojot:8000
+            value: apigw.dojot:8000
           - name: DOJOT_USERNAME
             value: admin
           - name: DOJOT_PASSWORD
             value: admin
-          - name: DOJOT_DEVICE
-            value: all
+          - name: MYSQL_DB_HOST
+            value: mysql.kubeflow
+          - name: MYSQL_DB_USER
+            value: root
           - name: PLATIAGRO_ENDPOINT
-            value: platiagro
-          - name: EXPERIMENT_ID
-            value: dfd7a767-a20c-4424-bf1b-287071218de1
+            value: istio-ingressgateway.istio-system:31380
           - name: SERVER_PORT
-            value: 3030
+            value: "3030"
+          - name: APP_PORT
+            value: "3333"
           - name: SERVER_KEY
             value: dfd7a767-a20c-4424-bf1b-287071218de1
           image: platiagro/dojot-integration:0.1.0

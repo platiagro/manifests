@@ -486,6 +486,16 @@ spec:
           name: manifests
           path: dojot/zookeeper
       name: zookeeper
+    - kustomizeConfig:
+        overlays:
+          - istio
+        parameters:
+          - name: namespace
+            value: dojot
+        repoRef:
+          name: manifests
+          path: dojot/platform-integrator
+      name: platform-integrator
   repos:
     - name: manifests
       uri: https://github.com/platiagro/manifests/archive/feature/dojot-installer.tar.gz

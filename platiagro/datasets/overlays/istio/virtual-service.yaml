@@ -4,7 +4,7 @@ metadata:
   name: datasets
 spec:
   gateways:
-  - kubeflow-gateway
+  - kubeflow/kubeflow-gateway
   hosts:
   - '*'
   http:
@@ -15,7 +15,7 @@ spec:
       uri: /
     route:
     - destination:
-        host: $(service).$(ui-namespace).svc.$(ui-clusterDomain)
+        host: $(service).$(namespace).svc.$(clusterDomain)
         port:
           number: 8080
     timeout: 300s

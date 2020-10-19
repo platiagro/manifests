@@ -233,6 +233,19 @@ spec:
           path: seldon/seldon-core-operator
       name: seldon-core-operator
     - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: platiagro
+        overlays:
+          - istio
+        repoRef:
+          name: manifests
+          path: platiagro/namespace
+      name: namespace
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: platiagro
         overlays:
           - istio
         repoRef:
@@ -240,6 +253,9 @@ spec:
           path: platiagro/datasets
       name: datasets
     - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: platiagro
         overlays:
           - istio
         repoRef:
@@ -247,6 +263,9 @@ spec:
           path: platiagro/pipelines
       name: pipelines
     - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: platiagro
         overlays:
           - istio
         repoRef:
@@ -254,6 +273,9 @@ spec:
           path: platiagro/projects
       name: projects
     - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: platiagro
         overlays:
           - istio
         repoRef:
@@ -262,5 +284,5 @@ spec:
       name: web-ui
   repos:
     - name: manifests
-      uri: https://github.com/platiagro/manifests/archive/v0.1.0-kubeflow-v1.0-branch.tar.gz
+      uri: https://github.com/platiagro/manifests/archive/feature/platiagro-namespace.tar.gz
   version: v0.1.0

@@ -244,6 +244,16 @@ spec:
       name: seldon-core-operator
     - kustomizeConfig:
         parameters:
+          - name: user
+            value: anonymous
+          - name: user
+            value: anonymous
+        repoRef:
+          name: manifests
+          path: default-install
+      name: default-install
+    - kustomizeConfig:
+        parameters:
           - name: namespace
             value: platiagro
         overlays:

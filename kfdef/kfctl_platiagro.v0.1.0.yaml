@@ -245,6 +245,18 @@ spec:
     - kustomizeConfig:
         parameters:
           - name: namespace
+            value: anonymous
+          - name: memory-limits
+            value: 4G
+          - name: cpu-limits
+            value: "2"
+        repoRef:
+          name: manifests
+          path: platiagro/notebook
+      name: notebook
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
             value: platiagro
         overlays:
           - istio

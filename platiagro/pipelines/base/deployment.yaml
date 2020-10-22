@@ -27,6 +27,8 @@ spec:
               value: "mysql.kubeflow"
             - name: MYSQL_DB_NAME
               value: "platiagro"
+            - name: JUPYTER_ENDPOINT
+              value: "http://server.anonymous:80/notebook/anonymous/server"
           ports:
             - containerPort: 8080
           livenessProbe:

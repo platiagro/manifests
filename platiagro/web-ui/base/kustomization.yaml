@@ -1,27 +1,27 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: kubeflow
+namespace: platiagro
 configMapGenerator:
-- name: ui-parameters
+- name: platiagro-web-ui-parameters
   env: params.env
 resources:
 - deployment.yaml
 - service.yaml
 vars:
-- name: ui-namespace
-  objref:
-    kind: Service
-    name: web-ui
-    apiVersion: v1
-  fieldref:
-    fieldpath: metadata.namespace
-- name: ui-clusterDomain
+- name: namespace
   objref:
     kind: ConfigMap
-    name: ui-parameters
+    name: platiagro-web-ui-parameters
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.namespace
+- name: clusterDomain
+  objref:
+    kind: ConfigMap
+    name: platiagro-web-ui-parameters
     version: v1
   fieldref:
-    fieldpath: data.uiClusterDomain
+    fieldpath: data.clusterDomain
 - name: service
   objref:
     kind: Service

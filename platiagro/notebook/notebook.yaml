@@ -1,0 +1,29 @@
+apiVersion: kubeflow.org/v1
+kind: Notebook
+metadata:
+  labels:
+    app: server
+  name: server
+  namespace: anonymous
+spec:
+  template:
+    spec:
+      containers:
+      - image: platiagro/platiagro-notebook-image:0.1.0
+        name: server
+        resources:
+          requests:
+            cpu: "0.1"
+            memory: 0.1Gi
+          limits:
+            cpu: "$(cpu-limits)"
+            memory: "$(memory-limits)"
+        volumeMounts:
+        - mountPath: /home/jovyan
+          name: workspace-server
+      serviceAccountName: default-editor
+      ttlSecondsAfterFinished: 300
+      volumes:
+      - name: workspace-server
+        persistentVolumeClaim:
+          claimName: workspace-server

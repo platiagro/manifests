@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: platiagro
+resources:
+- namespace.yaml
+configMapGenerator:
+- name: platiagro-namespace-parameters
+  env: params.env
+vars:
+- name: namespace
+  objref:
+    kind: ConfigMap
+    name: platiagro-namespace-parameters
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.namespace
+configurations:
+- params.yaml

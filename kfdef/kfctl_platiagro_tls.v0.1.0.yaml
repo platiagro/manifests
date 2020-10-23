@@ -243,6 +243,41 @@ spec:
           path: seldon/seldon-core-operator
       name: seldon-core-operator
     - kustomizeConfig:
+        parameters:
+          - name: user
+            value: anonymous
+          - name: user
+            value: anonymous
+        repoRef:
+          name: manifests
+          path: default-install
+      name: default-install
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: anonymous
+          - name: memory-limits
+            value: 4G
+          - name: cpu-limits
+            value: "2"
+        repoRef:
+          name: manifests
+          path: platiagro/notebook
+      name: notebook
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: platiagro
+        overlays:
+          - istio
+        repoRef:
+          name: manifests
+          path: platiagro/namespace
+      name: namespace
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: platiagro
         overlays:
           - istio
         repoRef:
@@ -250,6 +285,9 @@ spec:
           path: platiagro/datasets
       name: datasets
     - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: platiagro
         overlays:
           - istio
         repoRef:
@@ -257,6 +295,9 @@ spec:
           path: platiagro/pipelines
       name: pipelines
     - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: platiagro
         overlays:
           - istio
         repoRef:
@@ -264,6 +305,9 @@ spec:
           path: platiagro/projects
       name: projects
     - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: platiagro
         overlays:
           - istio
         repoRef:

@@ -23,6 +23,10 @@ spec:
               value: "minio"
             - name: MINIO_SECRET_KEY
               value: "minio123"
+            - name: MYSQL_DB_HOST
+              value: "mysql.kubeflow"
+            - name: MYSQL_DB_NAME
+              value: "platiagro"
             - name: JUPYTER_ENDPOINT
               value: "http://server.anonymous:80/notebook/anonymous/server"
           ports:

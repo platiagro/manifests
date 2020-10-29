@@ -27,5 +27,5 @@ spec:
       app.kubernetes.io/instance: persistent-agent-0.2.5
       app.kubernetes.io/managed-by: kfctl
       app.kubernetes.io/name: persistent-agent
-      app.kubernetes.io/part-of: kubeflow
+      app.kubernetes.io/part-of: deployments
       app.kubernetes.io/version: 0.2.5

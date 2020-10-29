@@ -6,13 +6,13 @@ data:
   config.json: |
     {
       "DBConfig": {
-        "DriverName": "mysql",
+        "DriverName": "mysql.kubeflow",
         "DataSourceName": "",
         "DBName": "mlpipeline",
         "GroupConcatMaxLen": "4194304"
       },
       "ObjectStoreConfig":{
-        "AccessKey": "minio",
+        "AccessKey": "minio-service.kubeflow:9000",
         "SecretAccessKey": "minio123",
         "BucketName": "mlpipeline",
         "Secure": false

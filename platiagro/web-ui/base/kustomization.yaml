@@ -1,0 +1,31 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: platiagro
+configMapGenerator:
+- name: platiagro-web-ui-parameters
+  env: params.env
+resources:
+- deployment.yaml
+- service.yaml
+vars:
+- name: namespace
+  objref:
+    kind: ConfigMap
+    name: platiagro-web-ui-parameters
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.namespace
+- name: clusterDomain
+  objref:
+    kind: ConfigMap
+    name: platiagro-web-ui-parameters
+    version: v1
+  fieldref:
+    fieldpath: data.clusterDomain
+- name: service
+  objref:
+    kind: Service
+    name: web-ui
+    apiVersion: v1
+  fieldref:
+    fieldpath: metadata.name

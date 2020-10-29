@@ -1,0 +1,34 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: platiagro
+configMapGenerator:
+  - name: platiagro-pipelines-parameters
+    env: params.env
+resources:
+  - cluster-role-binding.yaml
+  - cluster-role.yaml
+  - deployment.yaml
+  - service-account.yaml
+  - service.yaml
+vars:
+  - name: namespace
+    objref:
+      kind: ConfigMap
+      name: platiagro-pipelines-parameters
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.namespace
+  - name: clusterDomain
+    objref:
+      kind: ConfigMap
+      name: platiagro-pipelines-parameters
+      version: v1
+    fieldref:
+      fieldpath: data.clusterDomain
+  - name: service
+    objref:
+      kind: Service
+      name: pipelines
+      apiVersion: v1
+    fieldref:
+      fieldpath: metadata.name

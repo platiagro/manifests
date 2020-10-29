@@ -1,0 +1,29 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: projects
+spec:
+  selector:
+    matchLabels:
+      app: projects
+  template:
+    metadata:
+      labels:
+        app: projects
+    spec:
+      containers:
+        - image: platiagro/projects:0.2.0
+          name: projects
+          env:
+            - name: MYSQL_DB_HOST
+              value: "mysql.kubeflow"
+            - name: MYSQL_DB_NAME
+              value: "platiagro"
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 30

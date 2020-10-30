@@ -6,6 +6,7 @@ metadata:
     app: pipelines
 spec:
   ports:
-  - port: 8080
+  - name: http
+    port: 8080
   selector:
     app: pipelines

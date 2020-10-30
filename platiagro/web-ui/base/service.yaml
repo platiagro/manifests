@@ -6,6 +6,7 @@ metadata:
     app: web-ui
 spec:
   ports:
-  - port: 80
+  - name: http
+    port: 80
   selector:
     app: web-ui

@@ -16,6 +16,13 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: data.namespace
+- name: image
+  objref:
+    kind: ConfigMap
+    name: platiagro-notebook-parameters
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.image
 - name: memory-limits
   objref:
     kind: ConfigMap

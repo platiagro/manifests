@@ -21,6 +21,8 @@ spec:
           path: istio/istio-install
       name: istio-install
     - kustomizeConfig:
+        overlays:
+          - https-gateway
         parameters:
           - name: clusterRbacConfig
             value: "OFF"
@@ -35,6 +37,7 @@ spec:
         repoRef:
           name: manifests
           path: istio/add-anonymous-user-filter
+      name: add-anonymous-user-filter
     - kustomizeConfig:
         repoRef:
           name: manifests
@@ -74,6 +77,14 @@ spec:
           name: manifests
           path: cert-manager/cert-manager
       name: cert-manager
+    - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: istio-system
+        repoRef:
+          name: manifests
+          path: istio/ingressgateway-self-signed-cert
+      name: ingressgateway-self-signed-cert
     - kustomizeConfig:
         repoRef:
           name: manifests
@@ -118,6 +129,9 @@ spec:
         overlays:
           - istio
           - application
+        parameters:
+        - name: userid-header
+          value: kubeflow-userid
         repoRef:
           name: manifests
           path: jupyter/jupyter-web-app
@@ -254,7 +268,7 @@ spec:
           - name: namespace
             value: anonymous
           - name: image
-            value: platiagro/platiagro-notebook-image:0.2.0
+            value: platiagro/platiagro-notebook-image-gpu:0.2.0
           - name: memory-limits
             value: 4G
           - name: cpu-limits

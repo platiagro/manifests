@@ -263,6 +263,8 @@ spec:
         parameters:
           - name: namespace
             value: anonymous
+          - name: image
+            value: platiagro/platiagro-notebook-image:0.2.0
           - name: memory-limits
             value: 4G
           - name: cpu-limits

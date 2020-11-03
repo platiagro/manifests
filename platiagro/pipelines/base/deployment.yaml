@@ -29,6 +29,16 @@ spec:
               value: "platiagro"
             - name: JUPYTER_ENDPOINT
               value: "http://server.anonymous:80/notebook/anonymous/server"
+            - name: KF_PIPELINES_NAMESPACE
+              value: deployments
+            - name: MEMORY_REQUEST
+              value: 2G
+            - name: CPU_REQUEST
+              value: 500m
+            - name: MEMORY_LIMIT
+              value: 4G
+            - name: CPU_LIMIT
+              value: 2000m
           ports:
             - containerPort: 8080
           livenessProbe:

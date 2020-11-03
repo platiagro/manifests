@@ -21,6 +21,8 @@ spec:
           path: istio/istio-install
       name: istio-install
     - kustomizeConfig:
+        overlays:
+          - https-gateway
         parameters:
           - name: clusterRbacConfig
             value: "OFF"
@@ -76,6 +78,14 @@ spec:
           path: cert-manager/cert-manager
       name: cert-manager
     - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: istio-system
+        repoRef:
+          name: manifests
+          path: istio/ingressgateway-self-signed-cert
+      name: ingressgateway-self-signed-cert
+    - kustomizeConfig:
         repoRef:
           name: manifests
           path: metacontroller
@@ -119,6 +129,9 @@ spec:
         overlays:
           - istio
           - application
+        parameters:
+        - name: userid-header
+          value: kubeflow-userid
         repoRef:
           name: manifests
           path: jupyter/jupyter-web-app
@@ -127,9 +140,6 @@ spec:
         overlays:
           - istio
           - application
-        parameters:
-        - name: userid-header
-          value: kubeflow-userid
         repoRef:
           name: manifests
           path: jupyter/notebook-controller
@@ -258,7 +268,7 @@ spec:
           - name: namespace
             value: anonymous
           - name: image
-            value: platiagro/platiagro-notebook-image:0.1.0
+            value: platiagro/platiagro-notebook-image-gpu:0.1.0
           - name: memory-limits
             value: 4G
           - name: cpu-limits

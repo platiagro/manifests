@@ -1,0 +1,13 @@
+apiVersion: "kubeflow.org/v1alpha1"
+kind: PodDefault
+metadata:
+  name: add-nvidia-visible-devices
+  namespace: anonymous
+spec:
+  selector:
+    matchLabels:
+      add-nvidia-visible-devices: "true"
+  desc: "Add NVIDIA_VISIBLE_DEVICES=all"
+  env:
+  - name: NVIDIA_VISIBLE_DEVICES
+    value: "all"

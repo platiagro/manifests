@@ -13,7 +13,8 @@ data:
         "GroupConcatMaxLen": "4194304"
       },
       "ObjectStoreConfig":{
-        "AccessKey": "minio-service.kubeflow:9000",
+        "Host": "minio-service.kubeflow:9000",
+        "AccessKey": "minio",
         "SecretAccessKey": "minio123",
         "BucketName": "mlpipeline",
         "Secure": false

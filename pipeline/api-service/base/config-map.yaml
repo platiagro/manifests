@@ -6,7 +6,8 @@ data:
   config.json: |
     {
       "DBConfig": {
-        "DriverName": "mysql.kubeflow",
+        "Host": "mysql.kubeflow",
+        "DriverName": "mysql",
         "DataSourceName": "",
         "DBName": "mlpipeline",
         "GroupConcatMaxLen": "4194304"

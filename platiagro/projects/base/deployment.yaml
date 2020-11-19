@@ -19,6 +19,8 @@ spec:
               value: "mysql.kubeflow"
             - name: MYSQL_DB_NAME
               value: "platiagro"
+            - name: PLATIAGRO_NOTEBOOK_IMAGE
+              value: $(notebookImage)
           ports:
             - containerPort: 8080
           livenessProbe:

@@ -30,8 +30,8 @@ spec:
       name: istio
     - kustomizeConfig:
         parameters:
-        - name: namespace
-          value: istio-system
+          - name: namespace
+            value: istio-system
         repoRef:
           name: manifests
           path: istio/add-anonymous-user-filter
@@ -297,6 +297,8 @@ spec:
         parameters:
           - name: namespace
             value: platiagro
+          - name: image
+            value: platiagro/platiagro-notebook-image:0.2.0
         overlays:
           - istio
         repoRef:

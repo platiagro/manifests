@@ -311,6 +311,8 @@ spec:
         parameters:
           - name: namespace
             value: platiagro
+          - name: image
+            value: platiagro/platiagro-notebook-image-gpu:0.2.0
         overlays:
           - istio
         repoRef:

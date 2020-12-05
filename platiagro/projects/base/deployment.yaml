@@ -12,7 +12,7 @@ spec:
         app: projects
     spec:
       containers:
-        - image: platiagro/projects:0.2.0
+        - image: platiagro/projects:0.2.0-SNAPSHOT
           name: projects
           env:
             - name: MYSQL_DB_HOST

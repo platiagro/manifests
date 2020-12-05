@@ -12,7 +12,7 @@ spec:
         app: web-ui
     spec:
       containers:
-      - image: platiagro/web-ui:0.2.0
+      - image: platiagro/web-ui:0.2.0-SNAPSHOT
         name: web-ui
         ports:
         - containerPort: 80

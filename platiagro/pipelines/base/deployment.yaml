@@ -12,7 +12,7 @@ spec:
         app: pipelines
     spec:
       containers:
-        - image: platiagro/pipelines:0.2.0
+        - image: platiagro/pipelines:0.2.0-SNAPSHOT
           name: pipelines
           env:
             - name: KF_PIPELINES_ENDPOINT

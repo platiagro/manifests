@@ -3,6 +3,7 @@ kind: Kustomization
 commonLabels:
   app: ml-pipeline
 resources:
+- namespace.yaml
 - config-map.yaml
 - deployment.yaml
 - role-binding.yaml

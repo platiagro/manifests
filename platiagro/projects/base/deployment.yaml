@@ -15,12 +15,32 @@ spec:
         - image: platiagro/projects:0.2.0-SNAPSHOT
           name: projects
           env:
+            - name: KF_PIPELINES_ENDPOINT
+              value: ml-pipeline.deployments:8888
+            - name: MINIO_ENDPOINT
+              value: "minio-service.kubeflow:9000"
+            - name: MINIO_ACCESS_KEY
+              value: "minio"
+            - name: MINIO_SECRET_KEY
+              value: "minio123"
             - name: MYSQL_DB_HOST
               value: "mysql.kubeflow"
             - name: MYSQL_DB_NAME
               value: "platiagro"
+            - name: JUPYTER_ENDPOINT
+              value: "http://server.anonymous:80/notebook/anonymous/server"
+            - name: KF_PIPELINES_NAMESPACE
+              value: deployments
+            - name: MEMORY_REQUEST
+              value: 2G
+            - name: CPU_REQUEST
+              value: 100m
+            - name: MEMORY_LIMIT
+              value: 10G
+            - name: CPU_LIMIT
+              value: 2000m
             - name: PLATIAGRO_NOTEBOOK_IMAGE
-              value: $(notebookImage)
+              value: $(defaultTaskImage)
           ports:
             - containerPort: 8080
           livenessProbe:

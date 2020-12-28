@@ -15,13 +15,13 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: data.namespace
-- name: notebookImage
+- name: defaultTaskImage
   objref:
     kind: ConfigMap
     name: platiagro-projects-parameters
     version: v1
   fieldref:
-    fieldpath: data.image
+    fieldpath: data.defaultTaskImage
 - name: clusterDomain
   objref:
     kind: ConfigMap

@@ -256,9 +256,9 @@ spec:
           - name: image
             value: platiagro/platiagro-notebook-image:0.2.0
           - name: memory-limits
-            value: 4G
+            value: 10G
           - name: cpu-limits
-            value: "2"
+            value: 2000m
         repoRef:
           name: manifests
           path: platiagro/notebook

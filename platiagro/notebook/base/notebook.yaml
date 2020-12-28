@@ -14,8 +14,8 @@ spec:
         name: server
         resources:
           requests:
-            cpu: "0.1"
-            memory: 0.1Gi
+            cpu: 100m
+            memory: 2G
           limits:
             cpu: "$(cpu-limits)"
             memory: "$(memory-limits)"

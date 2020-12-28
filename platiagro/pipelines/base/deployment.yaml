@@ -34,9 +34,9 @@ spec:
             - name: MEMORY_REQUEST
               value: 2G
             - name: CPU_REQUEST
-              value: 500m
+              value: 100m
             - name: MEMORY_LIMIT
-              value: 4G
+              value: 10G
             - name: CPU_LIMIT
               value: 2000m
           ports:

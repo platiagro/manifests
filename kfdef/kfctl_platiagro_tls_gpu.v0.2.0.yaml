@@ -319,6 +319,11 @@ spec:
           name: manifests
           path: platiagro/web-ui
       name: web-ui
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: platiagro/artifacts
+      name: artifacts
   repos:
     - name: manifests
       uri: https://github.com/platiagro/manifests/archive/v0.2.0-kubeflow-v1.1-branch.tar.gz

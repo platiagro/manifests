@@ -1,0 +1,45 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: init-artifacts
+spec:
+  template:
+    spec:
+      containers:
+      - command:
+        - python
+        - -c
+        - >
+            import json
+            import tempfile
+
+            import requests
+            from platiagro.util import BUCKET_NAME, MINIO_CLIENT
+
+            with open("/artifacts/config.json") as f:
+                artifacts = json.load(f)
+
+            for artifact in artifacts:
+                response = requests.get(artifact["url"])
+
+                f = tempfile.NamedTemporaryFile(delete=False)
+                f.write(response.content)
+                f.close()
+
+                MINIO_CLIENT.fput_object(
+                    bucket_name=BUCKET_NAME,
+                    object_name=f"artifacts/{artifact['name']}",
+                    file_path=f.name,
+                )
+        image: platiagro/projects:0.2.0-SNAPSHOT
+        name: init-artifacts
+        volumeMounts:
+        - mountPath: /artifacts/config.json
+          subPath: config.json
+          readOnly: true
+          name: artifacts-configmap
+      restartPolicy: OnFailure
+      volumes:
+      - configMap:
+          name: artifacts-configmap
+        name: artifacts-configmap

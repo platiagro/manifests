@@ -8,34 +8,8 @@ spec:
       containers:
       - command:
         - python
-        - -c
-        - |
-            import json
-            import tempfile
-
-            import requests
-            from platiagro.util import BUCKET_NAME, MINIO_CLIENT
-
-            with open("/artifacts/config.json") as f:
-                artifacts = json.load(f)
-
-            for artifact in artifacts:
-                print(f"Downloading artifact from: {artifact['url']}", flush=True)
-                response = requests.get(artifact["url"])
-
-                f = tempfile.NamedTemporaryFile(delete=False)
-                f.write(response.content)
-                f.close()
-
-                print(f"Uploading to MinIO as: {artifact['name']}", flush=True)
-                MINIO_CLIENT.fput_object(
-                    bucket_name=BUCKET_NAME,
-                    object_name=f"artifacts/{artifact['name']}",
-                    file_path=f.name,
-                )
-
-            print("done!", flush=True)
-        image: platiagro/projects:0.2.0-SNAPSHOT
+        - /app/init.py
+        image: platiagro/artifacts:0.2.0-SNAPSHOT
         name: init-artifacts
         env:
         - name: MINIO_ENDPOINT
@@ -44,13 +18,4 @@ spec:
           value: "minio"
         - name: MINIO_SECRET_KEY
           value: "minio123"
-        volumeMounts:
-        - mountPath: /artifacts/config.json
-          subPath: config.json
-          readOnly: true
-          name: artifacts-configmap
       restartPolicy: OnFailure
-      volumes:
-      - configMap:
-          name: artifacts-configmap
-        name: artifacts-configmap

@@ -310,11 +310,6 @@ spec:
           name: manifests
           path: platiagro/artifacts
       name: artifacts
-    - kustomizeConfig:
-        repoRef:
-          name: manifests
-          path: platiagro/tasks
-      name: tasks
   repos:
     - name: manifests
       uri: https://github.com/platiagro/manifests/archive/feature/init-artifacts.tar.gz

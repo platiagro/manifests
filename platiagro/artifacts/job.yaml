@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: init-artifacts
+spec:
+  template:
+    spec:
+      containers:
+      - command:
+        - python
+        - /app/init.py
+        image: platiagro/artifacts:0.2.0-SNAPSHOT
+        name: init-artifacts
+        env:
+        - name: MINIO_ENDPOINT
+          value: "minio-service.kubeflow:9000"
+        - name: MINIO_ACCESS_KEY
+          value: "minio"
+        - name: MINIO_SECRET_KEY
+          value: "minio123"
+      restartPolicy: OnFailure

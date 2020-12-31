@@ -9,6 +9,8 @@ spec:
     metadata:
       annotations:
         sidecar.istio.io/inject: "false"
+        prometheus.io/scrape: "true"
+        prometheus.io/port: 9104
     spec:
       containers:
       - name: mysql
@@ -24,6 +26,14 @@ spec:
         volumeMounts:
         - mountPath: /var/lib/mysql
           name: mysql-persistent-storage
+      - name: mysql-exporter
+        env:
+        - name: DATA_SOURCE_NAME
+          value: "root@(mysql:3306)/"
+        image: prom/mysqld-exporter
+        ports:
+        - containerPort: 9104
+          name: http
       volumes:
       - name: mysql-persistent-storage
         persistentVolumeClaim:

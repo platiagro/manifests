@@ -27,5 +27,5 @@ spec:
       app.kubernetes.io/instance: pipelines-viewer-0.2.5
       app.kubernetes.io/managed-by: kfctl
       app.kubernetes.io/name: pipelines-viewer
-      app.kubernetes.io/part-of: deployments
+      app.kubernetes.io/part-of: anonymous
       app.kubernetes.io/version: 0.2.5

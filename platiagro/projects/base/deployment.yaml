@@ -12,11 +12,11 @@ spec:
         app: projects
     spec:
       containers:
-        - image: platiagro/projects:0.2.0-SNAPSHOT
+        - image: platiagro/projects:f024a066bdc1754db03a30e7b036b620950a604e
           name: projects
           env:
             - name: KF_PIPELINES_ENDPOINT
-              value: ml-pipeline.deployments:8888
+              value: ml-pipeline.anonymous:8888
             - name: MINIO_ENDPOINT
               value: "minio-service.kubeflow:9000"
             - name: MINIO_ACCESS_KEY
@@ -30,7 +30,7 @@ spec:
             - name: JUPYTER_ENDPOINT
               value: "http://server.anonymous:80/notebook/anonymous/server"
             - name: KF_PIPELINES_NAMESPACE
-              value: deployments
+              value: anonymous
             - name: MEMORY_REQUEST
               value: 2G
             - name: CPU_REQUEST

@@ -5,6 +5,7 @@ configMapGenerator:
 - name: platiagro-projects-parameters
   env: params.env
 resources:
+- role_binding.yaml
 - deployment.yaml
 - service.yaml
 vars:

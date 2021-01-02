@@ -18,7 +18,7 @@ spec:
     updateStrategy:
       method: OnDelete
   - apiVersion: apps/v1
-    resource: deployments
+    resource: anonymous
     updateStrategy:
       method: InPlace
   - apiVersion: v1

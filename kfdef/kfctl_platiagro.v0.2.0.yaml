@@ -133,7 +133,7 @@ spec:
     - kustomizeConfig:
         parameters:
           - name: namespace
-            value: deployments
+            value: anonymous
         overlays:
           - application
         repoRef:
@@ -163,7 +163,7 @@ spec:
     - kustomizeConfig:
         parameters:
           - name: namespace
-            value: deployments
+            value: anonymous
         overlays:
           - application
         repoRef:
@@ -173,7 +173,7 @@ spec:
     - kustomizeConfig:
         parameters:
           - name: namespace
-            value: deployments
+            value: anonymous
         overlays:
           - application
         repoRef:
@@ -183,7 +183,7 @@ spec:
     - kustomizeConfig:
         parameters:
           - name: namespace
-            value: deployments
+            value: anonymous
         overlays:
           - istio
           - application
@@ -194,7 +194,7 @@ spec:
     - kustomizeConfig:
         parameters:
           - name: namespace
-            value: deployments
+            value: anonymous
         overlays:
           - application
         repoRef:
@@ -204,7 +204,7 @@ spec:
     - kustomizeConfig:
         parameters:
           - name: namespace
-            value: deployments
+            value: anonymous
         overlays:
           - application
         repoRef:
@@ -214,7 +214,7 @@ spec:
     - kustomizeConfig:
         parameters:
           - name: namespace
-            value: deployments
+            value: anonymous
         overlays:
           - application
         repoRef:
@@ -312,5 +312,5 @@ spec:
       name: artifacts
   repos:
     - name: manifests
-      uri: https://github.com/platiagro/manifests/archive/v0.2.0-kubeflow-v1.1-branch.tar.gz
+      uri: https://github.com/platiagro/manifests/archive/feature/kfp-anonymous.tar.gz
   version: v0.2.0

@@ -5,6 +5,7 @@ configMapGenerator:
 - name: platiagro-notebook-parameters
   env: params.env
 resources:
+- sa.yaml
 - pod-default.yaml
 - persistent-volume-claim.yaml
 - notebook.yaml

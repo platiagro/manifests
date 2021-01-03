@@ -232,6 +232,16 @@ spec:
           path: pipeline/pipeline-visualization-service
       name: pipeline-visualization-service
     - kustomizeConfig:
+        parameters:
+          - name: namespace
+            value: anonymous
+        overlays:
+          - application
+        repoRef:
+          name: manifests
+          path: pipeline/installs/multi-user/persistence-agent
+      name: persistence-agent
+    - kustomizeConfig:
         overlays:
           - application
           - istio

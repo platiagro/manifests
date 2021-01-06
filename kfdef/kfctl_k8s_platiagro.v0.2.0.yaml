@@ -77,8 +77,8 @@ spec:
   - kustomizeConfig:
       repoRef:
         name: manifests
-        path: kfserving/installs/generic
-    name: kfserving
+        path: knative/installs/eventing
+    name: knative
   # Anonymous user
   - kustomizeConfig:
       repoRef:

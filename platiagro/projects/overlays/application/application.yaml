@@ -1,0 +1,31 @@
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: projects
+spec:
+  addOwnerRef: true
+  componentKinds:
+  - group: core
+    kind: ConfigMap
+  - group: apps
+    kind: Deployment
+  descriptor:
+    description: ''
+    keywords:
+    - projects
+    - platiagro
+    links:
+    - description: PlatIAgro projects API
+      url: 'https://github.com/platiagro/projects'
+    maintainers: []
+    owners: []
+    type: projects
+    version: v1beta1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: projects
+      app.kubernetes.io/instance: projects-0.2.0
+      app.kubernetes.io/managed-by: kfctl
+      app.kubernetes.io/name: projects
+      app.kubernetes.io/part-of: platiagro
+      app.kubernetes.io/version: 0.2.0

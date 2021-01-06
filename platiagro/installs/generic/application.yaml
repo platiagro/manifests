@@ -1,0 +1,39 @@
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: $(platiagro-app-name)
+spec:
+  addOwnerRef: true
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: platiagro
+  descriptor:
+    version: $(platiagro-app-version)
+    type: PlatIAgro
+    description: |-
+      AI Platform for pushing Ag-Tech forward.
+    maintainers:
+    - name: PlatIAgro
+      url: https://github.com/platiagro
+    links:
+    - description: 'PlatIAgro Documentation'
+      url: https://platiagro.github.io/
+  componentKinds:
+  - group: v1
+    kind: ServiceAccount
+  - group: rbac.authorization.k8s.io/v1
+    kind: Role
+  - group: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+  - group: v1
+    kind: Service
+  - group: v1
+    kind: PersistentVolumeClaim
+  - group: v1
+    kind: ConfigMap
+  - group: v1
+    kind: Secret
+  - group: apps/v1
+    kind: Deployment
+  - group: networking.istio.io/v1alpha3
+    kind: VirtualService

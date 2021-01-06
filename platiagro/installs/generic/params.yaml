@@ -1,0 +1,7 @@
+varReference:
+- path: spec/http/route/destination/host
+  kind: VirtualService
+- path: metadata/name
+  kind: Application
+- path: spec/descriptor/version
+  kind: Application

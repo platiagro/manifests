@@ -1,0 +1,40 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: platiagro
+configMapGenerator:
+- name: platiagro-projects-parameters
+  env: params.env
+
+images:
+- name: docker.io/platiagro/projects
+  newTag: 0.2.0-e28f6718efb197c2f5020aac62a46c7df04ef494
+
+resources:
+- deployment.yaml
+- service.yaml
+- envoy-filter.yaml
+- ../overlays/istio/virtual-service.yaml
+- ../overlays/application/application.yaml
+
+vars:
+- name: task-default-image
+  objref:
+    kind: ConfigMap
+    name: platiagro-projects-parameters
+    version: v1
+  fieldref:
+    fieldpath: data.task-default-image
+- name: platiagro-projects-namespace
+  objref:
+    kind: Service
+    name: projects
+    apiVersion: v1
+  fieldref:
+    fieldpath: metadata.namespace
+- name: platiagro-projects-service
+  objref:
+    kind: Service
+    name: projects
+    apiVersion: v1
+  fieldref:
+    fieldpath: metadata.name

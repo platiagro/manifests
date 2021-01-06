@@ -1,0 +1,7 @@
+varReference:
+- path: spec/template/spec/containers/image
+  kind: Notebook
+- path: spec/template/spec/containers/resources/limits/cpu
+  kind: Notebook
+- path: spec/template/spec/containers/resources/limits/memory
+  kind: Notebook

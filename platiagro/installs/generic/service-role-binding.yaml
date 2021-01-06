@@ -1,0 +1,25 @@
+apiVersion: "rbac.istio.io/v1alpha1"
+kind: ServiceRoleBinding
+metadata:
+  name: bind-ml-pipeline-projects
+  namespace: kubeflow
+spec:
+  subjects:
+  - properties:
+      source.principal: cluster.local/ns/platiagro/sa/default
+  roleRef:
+    kind: ServiceRole
+    name: ml-pipeline-services
+---
+apiVersion: "rbac.istio.io/v1alpha1"
+kind: ServiceRoleBinding
+metadata:
+  name: bind-ml-pipeline-nb-anonymous
+  namespace: kubeflow
+spec:
+  subjects:
+  - properties:
+      source.principal: cluster.local/ns/anonymous/sa/default-editor
+  roleRef:
+    kind: ServiceRole
+    name: ml-pipeline-services

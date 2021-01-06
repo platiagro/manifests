@@ -1,0 +1,31 @@
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: web-ui
+spec:
+  addOwnerRef: true
+  componentKinds:
+  - group: core
+    kind: ConfigMap
+  - group: apps
+    kind: Deployment
+  descriptor:
+    description: ''
+    keywords:
+    - web-ui
+    - platiagro
+    links:
+    - description: PlatIAgro Web UI
+      url: 'https://github.com/platiagro/web-ui'
+    maintainers: []
+    owners: []
+    type: web-ui
+    version: v1beta1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: web-ui
+      app.kubernetes.io/instance: web-ui-0.2.0
+      app.kubernetes.io/managed-by: kfctl
+      app.kubernetes.io/name: web-ui
+      app.kubernetes.io/part-of: platiagro
+      app.kubernetes.io/version: 0.2.0

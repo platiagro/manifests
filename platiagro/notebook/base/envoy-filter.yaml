@@ -21,7 +21,7 @@ spec:
         - append: true
           header:
             key: kubeflow-userid
-            value: anonymous@kubeflow.org
+            value: anonymous
   workloadSelector:
     labels:
       notebook-name: server

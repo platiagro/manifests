@@ -9,14 +9,6 @@ resources:
   - ../../jupyter/jupyter-web-app/base_v3
   - ../../jupyter/notebook-controller/base_v3
   - ../../profiles/base_v3
-  # Training Operators
-  - ../../pytorch-job/pytorch-job-crds/overlays/application
-  - ../../pytorch-job/pytorch-operator/overlays/application
-  - ../../tf-training/tf-job-crds/overlays/application
-  - ../../tf-training/tf-job-operator/overlays/application
-  - ../../mxnet-job/mxnet-operator/overlays/application
-  - ../../mpi-job/mpi-operator/overlays/application
-  - ../../katib/installs/katib-standalone
   # Pipelines
   - ../../pipeline/minio/installs/generic
   - ../../pipeline/mysql/installs/generic
@@ -49,10 +41,3 @@ vars:
     apiVersion: v1
     kind: ConfigMap
     name: kubeflow-config
-- fieldref:
-    fieldpath: metadata.namespace
-  name: katib-ui-namespace
-  objref:
-    kind: Service
-    name: katib-ui
-    apiVersion: v1

@@ -12,8 +12,6 @@ resources:
   - envoy-filter.yaml
   # Notebook Server
   - ../../notebook/base
-  # MySQL
-  - ../../mysql/base
   # Datasets API
   - ../../datasets/base
   # Projects API

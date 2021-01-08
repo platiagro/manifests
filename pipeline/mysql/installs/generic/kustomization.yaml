@@ -9,5 +9,5 @@ resources:
 - ../../overlays/application/application.yaml
 images:
 - name: gcr.io/ml-pipeline/mysql
-  newTag: '5.6'
-  newName: gcr.io/ml-pipeline/mysql
+  newTag: '5.7'
+  newName: mysql

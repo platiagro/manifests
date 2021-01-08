@@ -75,6 +75,11 @@ spec:
         name: manifests
         path: default-install/base
     name: default-install
+  - kustomizeConfig:
+      repoRef:
+        name: manifests
+        path: platiagro/notebook/base
+    name: platiagro-notebook
   repos:
   - name: manifests
     uri: https://github.com/platiagro/manifests/archive/v0.2.0-kubeflow-v1.2-branch.tar.gz

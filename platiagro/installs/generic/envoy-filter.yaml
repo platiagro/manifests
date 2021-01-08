@@ -1,9 +1,9 @@
-# Envoy filter to inject the kubeflow-userid header from projects to ml-pipeline service.
+# Envoy filter to inject the Host header from seldon orechstrator to logger service.
 apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
-  name: add-header-kubeflow-userid
-  namespace: platiagro
+  name: add-host-to-logger
+  namespace: anonymous
 spec:
   configPatches:
   - applyTo: VIRTUAL_HOST
@@ -11,7 +11,7 @@ spec:
       context: SIDECAR_OUTBOUND
       routeConfiguration:
         vhost:
-          name: ml-pipeline.kubeflow.svc.cluster.local:8888
+          name: logger.anonymous.svc.cluster.local
           route:
             name: default
     patch:
@@ -20,8 +20,8 @@ spec:
         request_headers_to_add:
         - append: true
           header:
-            key: kubeflow-userid
-            value: anonymous
+            key: Host
+            value: logger.anonymous.example.com
   workloadSelector:
     labels:
-      app: projects
+      seldon.io/model: "true"

@@ -23,7 +23,7 @@ spec:
         - name: MINIO_SECRET_KEY
           value: "minio123"
         - name: MYSQL_DB_HOST
-          value: "mysql.kubeflow"
+          value: "mysql.platiagro"
         - name: MYSQL_DB_NAME
           value: "platiagro"
         - name: JUPYTER_ENDPOINT

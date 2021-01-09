@@ -1,0 +1,21 @@
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: init-tasks
+  namespace: platiagro
+spec:
+  template:
+    spec:
+      containers:
+      - command:
+        - python
+        - /app/main.py
+        image: platiagro/tasks:0.2.0-SNAPSHOT
+        name: init-tasks
+        env:
+        - name: MYSQL_DB_HOST
+          value: "mysql.kubeflow"
+        - name: MYSQL_DB_NAME
+          value: "platiagro"
+      restartPolicy: OnFailure

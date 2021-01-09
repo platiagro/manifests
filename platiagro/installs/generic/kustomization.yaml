@@ -18,6 +18,8 @@ resources:
   - ../../projects/base
   # Web UI
   - ../../web-ui/base
+  # Job
+  - job.yaml
   #
   - application.yaml
 configMapGenerator:

@@ -7,7 +7,7 @@ configMapGenerator:
 
 images:
 - name: docker.io/platiagro/projects
-  newTag: 0.2.0-e28f6718efb197c2f5020aac62a46c7df04ef494
+  newTag: 0.2.0-SNAPSHOT
 
 resources:
 - deployment.yaml

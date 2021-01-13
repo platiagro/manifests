@@ -9,6 +9,13 @@ metadata:
 spec:
   template:
     spec:
+      initContainers:
+      - image: busybox
+        arguments: ["mkdir", "-p", "/home/jovyan/tasks"]
+        name: busybox
+        volumeMounts:
+        - mountPath: /home/jovyan
+          name: workspace-server
       containers:
       - image: "$(image)"
         name: server

@@ -38,7 +38,7 @@ spec:
           value: 10G
         - name: CPU_LIMIT
           value: 2000m
-        - name: PLATIAGRO_NOTEBOOK_IMAGE
+        - name: DEFAULT_IMAGE
           value: $(task-default-image)
         image: docker.io/platiagro/projects:0.2.0-SNAPSHOT
         imagePullPolicy: IfNotPresent

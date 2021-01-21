@@ -17,13 +17,20 @@ resources:
 - ../overlays/application/application.yaml
 
 vars:
-- name: task-default-image
+- name: task-default-experiment-image
   objref:
     kind: ConfigMap
     name: platiagro-projects-parameters
     version: v1
   fieldref:
-    fieldpath: data.task-default-image
+    fieldpath: data.task-default-experiment-image
+- name: task-default-deployment-image
+  objref:
+    kind: ConfigMap
+    name: platiagro-projects-parameters
+    version: v1
+  fieldref:
+    fieldpath: data.task-default-deployment-image
 - name: platiagro-projects-namespace
   objref:
     kind: Service

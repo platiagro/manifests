@@ -38,8 +38,10 @@ spec:
           value: 10G
         - name: CPU_LIMIT
           value: 2000m
-        - name: DEFAULT_IMAGE
-          value: $(task-default-image)
+        - name: TASK_DEFAULT_DEPLOYMENT_IMAGE
+          value: $(task-default-deployment-image)
+        - name: TASK_DEFAULT_EXPERIMENT_IMAGE
+          value: $(task-default-experiment-image)
         image: docker.io/platiagro/projects:0.2.0-SNAPSHOT
         imagePullPolicy: IfNotPresent
         ports:

@@ -9,13 +9,6 @@ metadata:
 spec:
   template:
     spec:
-      initContainers:
-      - image: busybox
-        arguments: ["mkdir", "-p", "/home/jovyan/tasks"]
-        name: busybox
-        volumeMounts:
-        - mountPath: /home/jovyan
-          name: workspace-server
       containers:
       - image: "$(image)"
         env:
@@ -32,11 +25,16 @@ spec:
             cpu: "$(cpu-limits)"
             memory: "$(memory-limits)"
         volumeMounts:
-        - mountPath: /home/jovyan
-          name: workspace-server
+        - mountPath: /home/jovyan/tasks
+          name: vol-tasks
+        - mountPath: /home/jovyan/experiments
+          name: vol-experiments
       serviceAccountName: default-editor
       ttlSecondsAfterFinished: 300
       volumes:
-      - name: workspace-server
+      - name: vol-tasks
         persistentVolumeClaim:
-          claimName: workspace-server
+          claimName: vol-tasks
+      - name: vol-experiments
+        persistentVolumeClaim:
+          claimName: vol-experiments

@@ -6,7 +6,7 @@ commonLabels:
 
 images:
 - name: mysql
-  newTag: '5.7'
+  newTag: '8.0.3'
   newName: mysql
 
 resources:

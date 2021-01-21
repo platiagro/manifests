@@ -18,6 +18,11 @@ spec:
           name: workspace-server
       containers:
       - image: "$(image)"
+        env:
+        - name: EXPERIMENT_ID
+          value: notebook
+        - name: OPERATOR_ID
+          value: notebook
         name: server
         resources:
           requests:

@@ -52,3 +52,28 @@ spec:
             port: 8080
           initialDelaySeconds: 30
           periodSeconds: 30
+---
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: persistence-agent
+spec:
+  selector:
+    matchLabels:
+      app: persistence-agent
+  template:
+    metadata:
+      labels:
+        app: persistence-agent
+    spec:
+      containers:
+      - name: persistence-agent
+        env:
+        - name: MYSQL_DB_HOST
+          value: "mysql.platiagro"
+        - name: MYSQL_DB_NAME
+          value: "platiagro"
+        - name: KF_PIPELINES_NAMESPACE
+          value: anonymous
+        image: docker.io/platiagro/persistence-agent:0.2.0-SNAPSHOT
+        imagePullPolicy: IfNotPresent

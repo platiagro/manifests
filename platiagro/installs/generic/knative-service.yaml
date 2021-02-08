@@ -5,6 +5,11 @@ metadata:
   namespace: anonymous
 spec:
   template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+        sidecar.istio.io/inject: "false"
     spec:
       containers:
       - image: platiagro/logger:0.2.0-SNAPSHOT
+        name: logger

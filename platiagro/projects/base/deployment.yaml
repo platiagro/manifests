@@ -40,14 +40,6 @@ spec:
           value: 2000m
         - name: SELDON_REST_TIMEOUT
           value: "60000"
-        - name: SELDON_REST_READ_TIMEOUT
-          value: "60000"
-        - name: SELDON_REST_CONNECTION_TIMEOUT
-          value: "60000"
-        - name: SELDON_GRPC_TIMEOUT
-          value: "60000"
-        - name: SELDON_GRPC_READ_TIMEOUT
-          value: "60000"
         - name: TASK_DEFAULT_DEPLOYMENT_IMAGE
           value: $(task-default-deployment-image)
         - name: TASK_DEFAULT_EXPERIMENT_IMAGE

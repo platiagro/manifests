@@ -6,10 +6,8 @@ resources:
   # Istio config
   - destination-rule.yaml
   - service-role-binding.yaml
-  # KNative Logger Service
-  - knative-service.yaml
+  # KNative Broker
   - broker.yaml
-  - envoy-filter.yaml
   # Notebook Server
   - ../../notebook/base
   # MySQL

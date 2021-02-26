@@ -30,16 +30,16 @@ spec:
           value: "http://server.anonymous:80/notebook/anonymous/server"
         - name: KF_PIPELINES_NAMESPACE
           value: anonymous
-        - name: MEMORY_REQUEST
-          value: 2G
-        - name: CPU_REQUEST
-          value: 100m
-        - name: MEMORY_LIMIT
-          value: 10G
-        - name: CPU_LIMIT
-          value: 2000m
         - name: SELDON_REST_TIMEOUT
           value: "60000"
+        - name: TASK_DEFAULT_MEMORY_REQUEST
+          value: 2G
+        - name: TASK_DEFAULT_CPU_REQUEST
+          value: 100m
+        - name: TASK_DEFAULT_MEMORY_LIMIT
+          value: 10G
+        - name: TASK_DEFAULT_CPU_LIMIT
+          value: 2000m
         - name: TASK_DEFAULT_DEPLOYMENT_IMAGE
           value: $(task-default-deployment-image)
         - name: TASK_DEFAULT_EXPERIMENT_IMAGE

@@ -33,17 +33,21 @@ spec:
         - name: SELDON_REST_TIMEOUT
           value: "60000"
         - name: TASK_DEFAULT_MEMORY_REQUEST
-          value: 2G
+          value: 2Gi
         - name: TASK_DEFAULT_CPU_REQUEST
           value: 100m
         - name: TASK_DEFAULT_MEMORY_LIMIT
-          value: 10G
+          value: 10Gi
         - name: TASK_DEFAULT_CPU_LIMIT
           value: 2000m
         - name: TASK_DEFAULT_DEPLOYMENT_IMAGE
           value: $(task-default-deployment-image)
         - name: TASK_DEFAULT_EXPERIMENT_IMAGE
           value: $(task-default-experiment-image)
+        - name: TASK_NVIDIA_VISIBLE_DEVICES
+          value: "all"
+        - name: DEPLOYMENT_INIT_TIMEOUT
+          value: "300"
         image: docker.io/platiagro/projects:0.2.0-SNAPSHOT
         imagePullPolicy: IfNotPresent
         ports:

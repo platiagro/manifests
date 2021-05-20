@@ -16,7 +16,9 @@ spec:
         app: mysql
     spec:
       containers:
-      - env:
+      - args:
+        - --ignore-db-dir=lost+found
+        env:
         - name: MYSQL_ALLOW_EMPTY_PASSWORD
           value: "true"
         image: gcr.io/ml-pipeline/mysql:5.6

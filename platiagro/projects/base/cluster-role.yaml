@@ -34,3 +34,9 @@ rules:
   - patch
   - update
   - watch
+- apiGroups:
+  - kubeflow.org
+  resources:
+  - notebooks
+  verbs:
+  - '*'

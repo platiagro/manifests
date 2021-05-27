@@ -13,6 +13,9 @@ resources:
 - deployment.yaml
 - service.yaml
 - envoy-filter.yaml
+- service-account.yaml
+- cluster-role-binding.yaml
+- cluster-role.yaml
 - ../overlays/istio/virtual-service.yaml
 - ../overlays/application/application.yaml
 

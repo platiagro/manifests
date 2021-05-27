@@ -58,6 +58,7 @@ spec:
             port: 8080
           initialDelaySeconds: 30
           periodSeconds: 30
+      serviceAccountName: platiagro
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -83,3 +84,4 @@ spec:
           value: anonymous
         image: docker.io/platiagro/persistence-agent:0.2.0-SNAPSHOT
         imagePullPolicy: IfNotPresent
+      serviceAccountName: platiagro

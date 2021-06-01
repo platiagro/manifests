@@ -14,3 +14,6 @@ subjects:
 - kind: ServiceAccount
   name: platiagro
   namespace: platiagro
+- kind: ServiceAccount
+  name: default-editor
+  namespace: anonymous

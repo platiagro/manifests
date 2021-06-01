@@ -51,3 +51,11 @@ rules:
   - get
   - list
   - patch
+- apiGroups:
+  - networking.istio.io
+  resources:
+  - gateways
+  verbs:
+  - get
+  - list
+

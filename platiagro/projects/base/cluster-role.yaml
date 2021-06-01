@@ -13,7 +13,13 @@ rules:
   - configmaps
   - persistentvolumeclaims
   verbs:
-  - '*'
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
 - apiGroups:
   - argoproj.io
   resources:
@@ -39,4 +45,6 @@ rules:
   resources:
   - notebooks
   verbs:
-  - '*'
+  - get
+  - list
+  - patch

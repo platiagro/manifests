@@ -5,6 +5,7 @@ metadata:
   labels:
     app: platiagro
   name: platiagro
+  namespace: anonymous
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

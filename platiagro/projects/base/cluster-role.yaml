@@ -4,6 +4,7 @@ metadata:
   labels:
     app: platiagro
   name: platiagro
+  namespace: anonymous
 rules:
 - apiGroups:
   - ""

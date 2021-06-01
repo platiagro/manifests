@@ -64,3 +64,9 @@ rules:
   - services
   verbs:
   - '*'
+- apiGroups:
+  - eventing.knative.dev
+  resources:
+  - triggers
+  verbs:
+  - '*'

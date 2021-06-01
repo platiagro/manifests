@@ -58,4 +58,9 @@ rules:
   verbs:
   - get
   - list
-
+- apiGroups:
+  - serving.knative.dev
+  resources:
+  - services
+  verbs:
+  - '*'

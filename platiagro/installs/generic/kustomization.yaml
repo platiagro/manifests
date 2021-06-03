@@ -3,6 +3,8 @@ kind: Kustomization
 resources:
   # Namespace
   - namespace.yaml
+  # Secrets
+  - secret.yaml
   # Istio config
   - destination-rule.yaml
   - service-role-binding.yaml

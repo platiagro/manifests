@@ -1,0 +1,40 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: anonymous
+
+configMapGenerator:
+- name: platiagro-notebook-parameters
+  env: params.env
+
+resources:
+- pod-default.yaml
+- persistent-volume-claim.yaml
+- notebook.yaml
+- envoy-filter.yaml
+- authorization-policy.yaml
+
+vars:
+- name: IMAGE
+  objref:
+    kind: ConfigMap
+    name: platiagro-notebook-parameters
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.image
+- name: MEMORY_LIMITS
+  objref:
+    kind: ConfigMap
+    name: platiagro-notebook-parameters
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.memory-limits
+- name: CPU_LIMITS
+  objref:
+    kind: ConfigMap
+    name: platiagro-notebook-parameters
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.cpu-limits
+
+configurations:
+- params.yaml

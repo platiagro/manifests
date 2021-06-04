@@ -1,0 +1,54 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: datasets
+  namespace: platiagro
+spec:
+  host: datasets.platiagro.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: projects
+  namespace: platiagro
+spec:
+  host: projects.platiagro.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: web-ui
+  namespace: platiagro
+spec:
+  host: web-ui.platiagro.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+---
+apiVersion: "networking.istio.io/v1alpha3"
+kind: DestinationRule
+metadata:
+  name: mysql
+  namespace: platiagro
+spec:
+  host: mysql.platiagro.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: minio
+  namespace: platiagro
+spec:
+  host: minio.platiagro.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL

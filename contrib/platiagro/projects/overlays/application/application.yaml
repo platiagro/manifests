@@ -1,0 +1,32 @@
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: platiagro-projects
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: platiagro-projects
+      app.kubernetes.io/instance: platiagro-projects-0.2.0
+      app.kubernetes.io/managed-by: kfctl
+      app.kubernetes.io/name: platiagro-projects
+      app.kubernetes.io/part-of: kubeflow
+      app.kubernetes.io/version: "0.2.0"
+  componentKinds:
+  - group: v1
+    kind: Service
+  - group: apps/v1
+    kind: Deployment
+  - group: v1
+    kind: Secret
+  descriptor:
+    type: "platiagro-projects"
+    version: "v1"
+    description: "PlatIAgro projects management service."
+    maintainers: []
+    owners: []
+    keywords:
+    - "platiagro"
+    links:
+    - description: PlatIAgro Web UI
+      url: "https://github.com/platiagro/projects"
+  addOwnerRef: true

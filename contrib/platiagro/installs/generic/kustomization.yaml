@@ -1,0 +1,52 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  # Namespace
+  - namespace.yaml
+  # Istio config
+  - destination-rule.yaml
+  - authorization-policy.yaml
+  # Service Account and Cluster Roles for APIs
+  - service-account.yaml
+  - cluster-role-binding.yaml
+  - cluster-role.yaml
+  # Notebook Server
+  - ../../notebook/base
+  # MinIO
+  - ../../minio/base
+  # MySQL
+  - ../../mysql/base
+  # Datasets API
+  - ../../datasets/overlays/istio
+  # Projects API
+  - ../../projects/overlays/istio
+  # Web UI
+  - ../../web-ui/overlays/istio
+  # Job
+  - job.yaml
+  #
+  - application.yaml
+
+configMapGenerator:
+- name: platiagro-install-config
+  envs:
+  - params.env
+
+vars:
+- name: platiagro-app-name
+  objref:
+    kind: ConfigMap
+    name: platiagro-install-config
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.appName
+- name: platiagro-app-version
+  objref:
+    kind: ConfigMap
+    name: platiagro-install-config
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.appVersion
+
+configurations:
+- params.yaml

@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: datasets
+  name: datasets
+spec:
+  selector:
+    matchLabels:
+      app: datasets
+  template:
+    metadata:
+      labels:
+        app: datasets
+    spec:
+      containers:
+      - name: datasets
+        env:
+        - name: MINIO_ENDPOINT
+          value: "minio.platiagro:9000"
+        - name: MINIO_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: minio-secrets
+              key: MINIO_ACCESS_KEY
+        - name: MINIO_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: minio-secrets
+              key: MINIO_SECRET_KEY
+        image: docker.io/platiagro/datasets:0.2.0-SNAPSHOT
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /
+            port: http
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http

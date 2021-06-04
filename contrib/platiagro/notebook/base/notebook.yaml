@@ -1,0 +1,40 @@
+apiVersion: kubeflow.org/v1
+kind: Notebook
+metadata:
+  labels:
+    app: server
+    add-nvidia-visible-devices: "true"
+  name: server
+  namespace: anonymous
+spec:
+  template:
+    spec:
+      containers:
+      - image: "$(IMAGE)"
+        env:
+        - name: EXPERIMENT_ID
+          value: notebook
+        - name: OPERATOR_ID
+          value: notebook
+        name: server
+        resources:
+          requests:
+            cpu: 100m
+            memory: 2G
+          limits:
+            cpu: "$(CPU_LIMITS)"
+            memory: "$(MEMORY_LIMITS)"
+        volumeMounts:
+        - mountPath: /home/jovyan/tasks
+          name: vol-tasks
+        - mountPath: /home/jovyan/experiments
+          name: vol-experiments
+      serviceAccountName: default-editor
+      ttlSecondsAfterFinished: 300
+      volumes:
+      - name: vol-tasks
+        persistentVolumeClaim:
+          claimName: vol-tasks
+      - name: vol-experiments
+        persistentVolumeClaim:
+          claimName: vol-experiments

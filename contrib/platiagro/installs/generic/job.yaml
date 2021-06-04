@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: init-tasks
+  namespace: platiagro
+spec:
+  template:
+    spec:
+      containers:
+      - command:
+        - python
+        - /app/main.py
+        image: platiagro/tasks:0.2.0-SNAPSHOT
+        name: init-tasks
+        env:
+        - name: MYSQL_DB_HOST
+          value: "mysql.platiagro"
+        - name: MYSQL_DB_NAME
+          value: "platiagro"
+        - name: MYSQL_DB_USER
+          value: "root"
+        - name: MYSQL_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secrets
+              key: MYSQL_ROOT_PASSWORD
+      restartPolicy: OnFailure
+      serviceAccountName: platiagro

@@ -1,0 +1,91 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: kfp-sdk
+  namespace: kubeflow
+spec:
+  selector:
+    matchLabels:
+      app: ml-pipeline
+  rules:
+  - from:
+    - source:
+        principals:
+        - cluster.local/ns/anonymous/sa/default-editor
+        - cluster.local/ns/platiagro/sa/platiagro
+  # For user workloads, which cannot user http headers for authentication
+  - when:
+    - key: request.headers[kubeflow-userid]
+      notValues: ['*']
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: datasets
+  namespace: platiagro
+spec:
+  selector:
+    matchLabels:
+      app: datasets
+  rules:
+  - from:
+    - source:
+        namespaces:
+        - istio-system
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: projects
+  namespace: platiagro
+spec:
+  selector:
+    matchLabels:
+      app: projects
+  rules:
+  - from:
+    - source:
+        namespaces:
+        - istio-system
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: web-ui
+  namespace: platiagro
+spec:
+  selector:
+    matchLabels:
+      app: web-ui
+  rules:
+  - from:
+    - source:
+        namespaces:
+        - istio-system
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: mysql
+  namespace: platiagro
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  rules:
+  - from:
+    - source:
+        principals:
+        - cluster.local/ns/platiagro/sa/platiagro
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: minio
+  namespace: platiagro
+spec:
+  selector:
+    matchLabels:
+      app: minio
+  rules:
+  - {}

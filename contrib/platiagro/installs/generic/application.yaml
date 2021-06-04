@@ -1,0 +1,40 @@
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: $(platiagro-app-name)
+  annotations:
+    kubernetes-engine.cloud.google.com/icon: >-
+      data:image/png;base64,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
+spec:
+  addOwnerRef: true
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: platiagro
+  descriptor:
+    version: $(platiagro-app-version)
+    type: PlatIAgro
+    description: |-
+      AI Platform for pushing Ag-Tech forward.
+    maintainers:
+    - name: PlatIAgro
+      url: https://github.com/platiagro
+    links:
+    - description: 'PlatIAgro Documentation'
+      url: https://platiagro.github.io/
+  componentKinds:
+  - group: v1
+    kind: Namespace
+  - group: v1
+    kind: ServiceAccount
+  - group: rbac.authorization.k8s.io/v1
+    kind: ClusterRole
+  - group: rbac.authorization.k8s.io/v1
+    kind: ClusterRoleBinding
+  - group: apps/v1
+    kind: Deployment
+    group: batch/v1
+    kind: Job
+  - group: networking.istio.io/v1alpha3
+    kind: DestinationRule
+  - group: security.istio.io/v1beta1
+    kind: AuthorizationPolicy

@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: platiagro
+commonLabels:
+  app: minio
+
+images:
+- name: gcr.io/ml-pipeline/minio
+  newTag: "RELEASE.2019-08-14T20-37-41Z-license-compliance"
+  newName: gcr.io/ml-pipeline/minio
+
+resources:
+- deployment.yaml
+- service.yaml
+- persistent-volume-claim.yaml
+- secret.yaml

@@ -1,0 +1,27 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ../../base
+- virtual-service.yaml
+
+namespace: platiagro
+
+vars:
+- name: DATASETS_SERVICE
+  objref:
+    kind: Service
+    name: datasets
+    apiVersion: v1
+  fieldref:
+    fieldpath: metadata.name
+- name: DATASETS_NAMESPACE
+  objref:
+    kind: Service
+    name: datasets
+    apiVersion: v1
+  fieldref:
+    fieldpath: metadata.namespace
+
+configurations:
+- params.yaml

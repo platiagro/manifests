@@ -1,0 +1,15 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: broker
+  namespace: anonymous
+spec:
+  selector:
+    matchLabels:
+      eventing.knative.dev/broker: default
+      eventing.knative.dev/brokerRole: ingress
+  rules:
+  - from:
+    - source:
+        principals:
+        - cluster.local/ns/platiagro/sa/platiagro

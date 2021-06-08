@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dex
+  namespace: auth
+spec:
+  template:
+    spec:
+      initContainers:
+      - command:
+        - sh
+        - -c
+        - |
+          wget -O web.zip https://github.com/platiagro/manifests/archive/refs/heads/v0.2.0-kubeflow-v1.3-branch.zip
+          unzip web.zip manifests-0.2.0-kubeflow-v1.3-branch/platiagro-auth/web/*
+          mv manifests-0.2.0-kubeflow-v1.3-branch/platiagro-auth/web/* /web-platiagro/
+          chown -R 1001 /web-platiagro
+        image: alpine:3
+        imagePullPolicy: IfNotPresent
+        name: take-web-platiagro-dir-ownership
+        volumeMounts:
+        - mountPath: /web-platiagro
+          name: dex-frontend
+      containers:
+      - name: dex
+        volumeMounts:
+        - mountPath: /web-platiagro
+          name: dex-frontend
+      volumes:
+      - name: dex-frontend
+        persistentVolumeClaim:
+          claimName: dex-frontend

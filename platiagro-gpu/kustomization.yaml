@@ -47,6 +47,10 @@ resources:
 # PlatIAgro
 - ../contrib/platiagro/installs/generic
 
+# Istio Self-signed-cert
+- istio-ingress-certificate.yaml
+
 patchesStrategicMerge:
+- patches/istio-gateway.yaml
 - patches/custom-notebook-image.yaml
 - patches/custom-projects-envs.yaml

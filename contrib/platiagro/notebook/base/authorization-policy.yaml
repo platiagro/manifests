@@ -8,7 +8,4 @@ spec:
     matchLabels:
       notebook-name: server
   rules:
-  - from:
-    - source:
-        namespaces:
-        - istio-system
+  - {}

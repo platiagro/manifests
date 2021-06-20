@@ -4,7 +4,8 @@ namespace: anonymous
 
 configMapGenerator:
 - name: platiagro-notebook-parameters
-  env: params.env
+  envs:
+  - params.env
 
 resources:
 - pod-default.yaml

@@ -3,7 +3,8 @@ kind: Kustomization
 namespace: platiagro
 configMapGenerator:
 - name: platiagro-projects-parameters
-  env: params.env
+  envs:
+  - params.env
 
 images:
 - name: docker.io/platiagro/projects

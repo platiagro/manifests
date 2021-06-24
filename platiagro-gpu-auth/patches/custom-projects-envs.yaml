@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: projects
+spec:
+  template:
+    metadata:
+      labels:
+        app: projects
+    spec:
+      containers:
+      - name: projects
+        env:
+        - name: TASK_DEFAULT_DEPLOYMENT_IMAGE
+          value: platiagro/platiagro-deployment-image-gpu:0.2.0
+        - name: TASK_DEFAULT_EXPERIMENT_IMAGE
+          value: platiagro/platiagro-experiment-image-gpu:0.2.0

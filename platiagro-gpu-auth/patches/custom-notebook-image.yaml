@@ -1,0 +1,28 @@
+apiVersion: kubeflow.org/v1
+kind: Notebook
+metadata:
+  name: server
+  namespace: anonymous
+spec:
+  template:
+    spec:
+      containers:
+      - image: platiagro/platiagro-notebook-image-gpu:0.2.0
+        env:
+        - name: EXPERIMENT_ID
+          value: notebook
+        - name: OPERATOR_ID
+          value: notebook
+        name: server
+        resources:
+          requests:
+            cpu: 100m
+            memory: 2G
+          limits:
+            cpu: 2000m
+            memory: 10G
+        volumeMounts:
+        - mountPath: /home/jovyan/tasks
+          name: vol-tasks
+        - mountPath: /home/jovyan/experiments
+          name: vol-experiments

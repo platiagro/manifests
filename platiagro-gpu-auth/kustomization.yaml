@@ -1,0 +1,63 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+# Cert-Manager
+- ../common/cert-manager/cert-manager-kube-system-resources/base
+- ../common/cert-manager/cert-manager-crds/base
+- ../common/cert-manager/cert-manager/overlays/self-signed
+# Istio
+- ../common/istio-1-9-0/istio-crds/base
+- ../common/istio-1-9-0/istio-namespace/base
+- ../common/istio-1-9-0/istio-install/base
+# OIDC Authservice
+- ../common/oidc-authservice/base
+# Dex
+- ../common/dex/overlays/istio
+# KNative
+- ../common/knative/knative-serving-crds/base
+- ../common/knative/knative-serving-install/base
+- ../common/knative/knative-eventing-crds/base
+- ../common/knative/knative-eventing-install/base
+- ../common/istio-1-9-0/cluster-local-gateway/base
+# Kubeflow namespace
+- ../common/kubeflow-namespace/base
+# Kubeflow Roles
+- ../common/kubeflow-roles/base
+# Kubeflow Istio Resources
+- ../common/istio-1-9-0/kubeflow-istio-resources/base
+
+# Application CRDS
+- ../contrib/application/application-crds/base
+
+# Kubeflow Pipelines
+- ../apps/pipeline/upstream/env/platform-agnostic-multi-user
+# Admission Webhook
+- ../apps/admission-webhook/upstream/overlays/cert-manager
+# Notebook Controller
+- ../apps/jupyter/jupyter-web-app/upstream/overlays/istio
+# Jupyter Web App
+- ../apps/jupyter/notebook-controller/upstream/overlays/kubeflow
+# Profiles + KFAM
+- ../apps/profiles/upstream/overlays/kubeflow
+
+# Seldon Core
+- ../contrib/seldon/seldon-core-operator/overlays/application
+
+# Istio Self-signed-cert
+- istio-ingress-certificate.yaml
+
+# User namespace
+- ../contrib/platiagro/user-namespace/base
+- ../common/istio/add-anonymous-user-filter/base
+- dex-persistent-volume-claim.yaml
+
+# PlatIAgro
+- ../contrib/platiagro/installs/generic
+
+patchesStrategicMerge:
+- patches/istio-gateway.yaml
+- patches/dex-configmap.yaml
+- patches/dex-deployment.yaml
+- patches/custom-notebook-image.yaml
+- patches/custom-projects-envs.yaml

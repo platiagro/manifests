@@ -91,3 +91,15 @@ spec:
       app: minio
   rules:
   - {}
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: seldon
+  namespace: anonymous
+spec:
+  rules:
+  - {}
+  selector:
+    matchLabels:
+      seldon.io/model: "true"

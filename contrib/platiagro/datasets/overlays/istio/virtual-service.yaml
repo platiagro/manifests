@@ -18,4 +18,4 @@ spec:
         host: $(DATASETS_SERVICE).$(DATASETS_NAMESPACE).svc.cluster.local
         port:
           number: 8080
-    timeout: 300s
+    timeout: 7200s

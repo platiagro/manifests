@@ -54,3 +54,4 @@ patchesStrategicMerge:
 - patches/istio-gateway.yaml
 - patches/custom-notebook-image.yaml
 - patches/custom-projects-envs.yaml
+- patches/custom-ml-pipeline-persistenceagent.yaml

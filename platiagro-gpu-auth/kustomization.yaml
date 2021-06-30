@@ -61,3 +61,4 @@ patchesStrategicMerge:
 - patches/dex-deployment.yaml
 - patches/custom-notebook-image.yaml
 - patches/custom-projects-envs.yaml
+- patches/custom-ml-pipeline-persistenceagent.yaml

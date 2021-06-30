@@ -59,3 +59,4 @@ patchesStrategicMerge:
 - patches/istio-gateway.yaml
 - patches/dex-configmap.yaml
 - patches/dex-deployment.yaml
+- patches/custom-ml-pipeline-persistenceagent.yaml

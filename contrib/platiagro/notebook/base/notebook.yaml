@@ -16,6 +16,18 @@ spec:
           value: notebook
         - name: OPERATOR_ID
           value: notebook
+        - name: MINIO_ENDPOINT
+          value: "minio.platiagro:9000"
+        - name: MINIO_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: minio-secrets
+              key: MINIO_ACCESS_KEY
+        - name: MINIO_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: minio-secrets
+              key: MINIO_SECRET_KEY
         name: server
         resources:
           requests:

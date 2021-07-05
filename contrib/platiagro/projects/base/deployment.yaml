@@ -62,7 +62,7 @@ spec:
         - name: DEPLOYMENT_INIT_TIMEOUT
           value: "300"
         - name: MAIL_USERNAME
-          value: "" 
+          value: ""
         - name: MAIL_PASSWORD
           value: ""
         - name: MAIL_SENDER_ADDRESS
@@ -98,7 +98,10 @@ spec:
         app: persistence-agent
     spec:
       containers:
-      - name: persistence-agent
+      - args:
+        - --log-level
+        - INFO
+        name: persistence-agent
         env:
         - name: MYSQL_DB_HOST
           value: "mysql.platiagro"
